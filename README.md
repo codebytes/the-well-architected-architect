@@ -1,67 +1,33 @@
-# Marp Slides Template
+# The Well-Architected Architect
 
-[Use this template!](https://github.com/codebytes/marp-slides-template/generate)
+This repository contains resources and demos for the talk "The Well-Architected Architect" by Chris Ayers.
 
-Create a Marp presentation site that can be built and published on [GitHub Pages] using this minimal template. The site features:
+## Slides
 
-- Marp integration
-- A GitHub Pages / Actions workflow for build and publish ([See a preview](http://chris-ayers.com/marp-slides-template/))
-- A DevContainer/CodeSpace configuration with Marp and Markdown preview extensions
-- Chrome installation for PDF and PowerPoint slide creation on Linux
+The slides for the talk can be found at:\
+[https://chris-ayers.com/the-well-architected-architect/](https://chris-ayers.com/the-well-architected-architect/)
 
-## Customization
+## Repository Content
 
-Feel free to customize the sites created with this template as you like!
-
-## Getting Started
-
-1. Click "[use this template]" to create a new site.
-2. Update the content of `slides/Slides.md` with your own presentation.
-
-## Custom Themes
-
-This template includes four custom themes in the `slides/themes` folder:
-
-- custom
-- custom-default (based on the built-in default theme)
-- custom-gaia (based on the built-in gaia theme)
-- custom-uncover (based on the built-in uncover theme)
-
-To use a custom theme, edit the relevant css file and add its reference in the front matter of `Slides.md`. For example, to use `custom-default` add the following to the `Slides.md` front matter:
-
-```markdown
----
-marp: true
-theme: custom-default
----
-```
-
-For additional themes, add them to the devcontainer and follow the [Marp custom theme documentation](https://marpit.marp.app/theme-css).
-
-## Publishing on GitHub Pages
-
-1. In your GitHub repo, navigate to `Settings` > `Pages` > `Build and deployment`.
-2. Select `Source`: `GitHub Actions`.
-3. If any Actions failed, go to the `Actions` tab and click on `Re-run jobs`.
-
-## Local Build and Preview
-
-1. Install [Visual Studio Code](https://code.visualstudio.com/).
-2. Install the [Marp for VS Code extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode).
-3. Open `slides/Slides.md` in VS Code.
-
-## Licensing and Attribution
-
-This repository is licensed under the [MIT License]. Reuse or extend the code as you wish, but include the original license. The deployment GitHub Actions workflow is based on GitHub's starter workflows.
+This repository contains demos showcasing various scenarios and slides.
 
 ## Resources
 
-- [Use this template](https://github.com/codebytes/marp-slides-template/generate)
+- [Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/)
+- [Well-Architected Framework perspective on Azure services](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/?product=popular)
+- [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/)
 
-- GitHub Pages: [https://docs.github.com/en/pages](https://docs.github.com/en/pages)
+## Connect with Chris Ayers
 
-- CommonMark markdown syntax: [https://commonmark.org/help/](https://commonmark.org/help/)
+Feel free to connect with Chris Ayers on social media and visit his blog for more information on Bicep and other topics:
 
-- Marp Official Repository: [https://github.com/marp-team/marp](https://github.com/marp-team/marp)
-- Marp Official Documentation: [https://marpit.marp.app/markdown](https://marpit.marp.app/markdown)
-- Marp for VS Code Documentation: [https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)
+- BlueSky: [@chris-ayers.com](https://bsky.app/profile/chris-ayers.com)
+- LinkedIn: [chris-l-ayers](https://linkedin.com/in/chris-l-ayers/)
+- Blog: [https://chris-ayers.com/](https://chris-ayers.com/)
+- GitHub: [Codebytes](https://github.com/codebytes)
+- Twitter: [@Chris_L_Ayers](https://twitter.com/Chris_L_Ayers)
+- Mastodon: [@Chrisayers@hachyderm.io](https://hachyderm.io/@Chrisayers)
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
