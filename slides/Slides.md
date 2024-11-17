@@ -1,97 +1,156 @@
 ---
 marp: true
 theme: custom-default
-footer: 'https://example.com'
+footer: 'Chris Ayers | Senior SRE, Microsoft'
+paginate: true
 ---
 
-# My Presentation
-![bg right](https://picsum.photos/800/600)
+# The Well-Architected Architect
 
----
-
-<!-- Speaker Notes -->
-## Slide 1
-
-- Item 1
-- Item 2
-- Item 3
-<!-- Can have multiple on a slide -->
+**Chris Ayers**
+_Senior Customer Engineer, Microsoft_
+**Level: Intermediate**
 
 ---
 
-## Slide 2
-<!-- Can also do a multiline
-comment that will show in notes -->
+# Agenda
 
-![Image](https://picsum.photos/800/600)
-
----
-
-## Slide 3
-
-> This is a quote.
+- Azure Well-Architected Framework
+- Pillar Deep Dive
+- WAF Service Guides Overview
+- Trade-offs
+- Q&A
 
 ---
 
-## Slide 4
-
-| Column 1 | Column 2 |
-| -------- | -------- |
-| Item 1   | Item 2   |
-| Item 3   | Item 4   |
+# Microsoft Azure Well-Architected Framework
 
 ---
 
-![bg opacity](https://picsum.photos/800/600?image=53)
-## Slide 5
+# The Azure Well-Architected Framework
 
-<div class="columns">
-<div>
+The Azure Well-Architected Framework is a design framework that can improve the quality of a workload by helping it to:
 
-## Left
-
-- 1
-- 2
-
-</div>
-<div>
-
-## Right
-
-- 3
-- 4
-
-</div>
-</div>
+- Be resilient, available, and recoverable.
+- Be as secure as you need it to be.
+- Deliver a sufficient return on investment.
+- Support responsible development and operations.
+- Accomplish its purpose within acceptable timeframes.
 
 ---
 
-## Slide 6
-
-<i class="fa-brands fa-twitter"></i> Twitter: 
-<i class="fa-brands fa-mastodon"></i> Mastodon: 
-<i class="fa-brands fa-linkedin"></i> LinkedIn: 
-<i class="fa fa-window-maximize"></i> Blog: 
-<i class="fa-brands fa-github"></i> GitHub: 
+# The Five Pillars
 
 ---
 
-# <!--fit--> Large Text
+## Microsoft Azure Well-Architected Framework Pillars
+
+| Reliability                        | Security                            | Cost Optimization                  | Operational Excellence                  | Performance Efficiency                  |
+|------------------------------------|-------------------------------------|------------------------------------|-----------------------------------------|-----------------------------------------|
+| Resiliency, availability, recovery | Protect data, detect threats, mitigate risks | Budgeting, reducing waste, efficiency | Observability, DevOps practices, safe deployments | Scalability, load testing, performance monitoring |
 
 ---
 
-<!-- Needed for mermaid, can be anywhere in file except frontmatter -->
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true });
-</script>
+# Reliability Design Principles
 
-# Mermaid
+- **Business Requirements**: Focus on the workload's intended utility.
+- **Resilience**: Operate with full or reduced functionality.
+- **Recovery**: Recover with minimal disruption.
+- **Operations**: Anticipate failure conditions.
+- **Simplicity**: Avoid overengineering.
 
-<div class="mermaid">
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-</div>
+---
+
+# Security Design Principles
+
+- Plan your security readiness.
+- Protect confidentiality, integrity, and availability.
+- Evolve security posture to stay ahead of attackers.
+
+---
+
+# Cost Optimization Design Principles
+
+- Develop cost-management discipline.
+- Maintain a cost-efficiency mindset.
+- Monitor and optimize over time.
+
+---
+
+# Operational Excellence Design Principles
+
+- Embrace DevOps culture.
+- Evolve operations with observability.
+- Deploy with confidence.
+- Automate for efficiency.
+
+---
+
+# Performance Efficiency Design Principles
+
+- Negotiate realistic performance targets.
+- Meet capacity requirements.
+- Improve efficiency through optimization.
+
+---
+
+# Well-Architected Framework Demo
+
+---
+
+# Well-Architected Workloads
+
+---
+
+## What are Well-Architected Workloads?
+
+- Prioritizes key requirements to achieve specific goals.
+- Evaluated based on meeting its intended purpose.
+- Designed to be adaptable, secure, and deliver value.
+
+---
+
+# Examples of Well-Architected Workloads
+
+- Azure Virtual Desktop
+- Azure VMware Solution
+- Mission-critical workloads
+- IoT, SAP, Oracle on IaaS
+
+---
+
+# Service Guides
+
+- Assist in decision-making for Azure components within workloads.
+- Highlight core features through the lens of WAF pillars.
+
+---
+
+# WAF Service Guide Impact
+
+- **Quick Decision-Making Tools**
+- **Informed Decisions**
+- **Expert Insights**
+- **Influential Guidance**
+
+---
+
+# Q&A
+
+---
+
+# Resources
+
+- Well-Architected Framework
+- Well-Architected Workloads
+- WAF Service Guides
+
+---
+
+# Session Survey
+
+Your feedback is important!
+
+- Use the mobile app to complete the session survey.
+- Search for “Converge360 Events.”
+- Thank you for your time!
