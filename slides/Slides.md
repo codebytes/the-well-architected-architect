@@ -5,11 +5,26 @@ footer: 'Chris Ayers | Senior SRE, Microsoft'
 paginate: true
 ---
 
-# The Well-Architected Architect
+![bg](./img/intro.png)
 
-**Chris Ayers**
-_Senior Customer Engineer, Microsoft_
-**Level: Intermediate**
+---
+
+![bg](./img/feeback.png)
+
+---
+
+![bg left:40%](./img/portrait.png)
+
+## Chris Ayers
+
+### Senior Risk SRE<br>Azure CXP AzRel<br>Microsoft
+
+<i class="fa-brands fa-bluesky"></i> BlueSky: [@chris-ayers.com](https://bsky.app/profile/chris-ayers.com)
+<i class="fa-brands fa-linkedin"></i> LinkedIn: - [chris\-l\-ayers](https://linkedin.com/in/chris-l-ayers/)
+<i class="fa fa-window-maximize"></i> Blog: [https://chris-ayers\.com/](https://chris-ayers.com/)
+<i class="fa-brands fa-github"></i> GitHub: [Codebytes](https://github.com/codebytes)
+<i class="fa-brands fa-twitter"></i> Twitter: @Chris\_L\_Ayers
+<i class="fa-brands fa-mastodon"></i> Mastodon: [@Chrisayers@hachyderm.io](https://hachyderm.io/@Chrisayers)
 
 ---
 
@@ -17,8 +32,9 @@ _Senior Customer Engineer, Microsoft_
 
 - Azure Well-Architected Framework
 - Pillar Deep Dive
-- WAF Service Guides Overview
 - Trade-offs
+- WAF Service Guides Overview
+- Tools
 - Q&A
 
 ---
@@ -39,15 +55,69 @@ The Azure Well-Architected Framework is a design framework that can improve the 
 
 ---
 
-# The Five Pillars
-
----
-
 ## Microsoft Azure Well-Architected Framework Pillars
 
 | Reliability                        | Security                            | Cost Optimization                  | Operational Excellence                  | Performance Efficiency                  |
 |------------------------------------|-------------------------------------|------------------------------------|-----------------------------------------|-----------------------------------------|
 | Resiliency, availability, recovery | Protect data, detect threats, mitigate risks | Budgeting, reducing waste, efficiency | Observability, DevOps practices, safe deployments | Scalability, load testing, performance monitoring |
+
+---
+
+# Design Principles
+
+Each pillar provides recommended practices, risk considerations, and tradeoffs. Design decisions must balance across all pillars, given the business requirements.
+
+![bg right fit](img/design-principles.png)
+
+---
+
+# Checklists
+
+Start with the checklist for each pillar to evaluate your design choices. Each item on the checklist is accompanied by recommendation guides that describe key strategies and how Azure helps you attain the recommendation.
+
+![bg right fit](img/checklists.png)
+
+---
+
+# Recommendation Guides
+
+Recommendation guides offer detailed strategies for achieving the goals of each pillar. They provide actionable guidance and best practices to ensure your workload meets the desired standards.
+
+![bg right fit](img/recommendation-guides.png)
+
+---
+
+# Cloud Design Patterns
+
+Cloud design patterns are mapped to the pillars they directly support. These patterns help you implement reliable, secure, cost-effective, operationally excellent, and performant solutions.
+
+---
+
+# Tradeoffs and Risks
+
+Each architectural decision involves tradeoffs and risks. The framework highlights these considerations to help you make informed decisions that balance the various aspects of the framework.
+
+---
+
+# Audience
+
+The framework applies to teams responsible for improving workloads and addressing cross-cutting concerns. It provides valuable insights for architects, developers, operators, and business stakeholders.
+
+---
+
+# Goals
+
+The primary objective is to set you up for success when deploying workloads on Azure. It helps you understand tradeoffs, optimize over time, and ensure successful implementation.
+
+---
+
+# The Five Pillars
+
+---
+
+# Reliability Overview
+
+Outages and malfunctions are critical concerns. A reliable workload must survive these events, maintaining functionality and availability. It should detect, withstand, and recover from failures within an acceptable time, ensuring users can access it as promised.
 
 ---
 
@@ -144,13 +214,9 @@ The Azure Well-Architected Framework is a design framework that can improve the 
 - Well-Architected Framework
 - Well-Architected Workloads
 - WAF Service Guides
+- Azure Advisor
+- Azure Architecture Center
 
 ---
 
-# Session Survey
-
-Your feedback is important!
-
-- Use the mobile app to complete the session survey.
-- Search for “Converge360 Events.”
-- Thank you for your time!
+![bg](./img/feeback.png)
