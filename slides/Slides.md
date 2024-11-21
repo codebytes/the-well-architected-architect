@@ -123,11 +123,17 @@ Outages and malfunctions are critical concerns. A reliable workload must survive
 
 # Reliability Design Principles
 
-- **Business Requirements**: Focus on the workload's intended utility.
-- **Resilience**: Operate with full or reduced functionality.
-- **Recovery**: Recover with minimal disruption.
-- **Operations**: Anticipate failure conditions.
-- **Simplicity**: Avoid overengineering.
+- Focus on the workload's intended utility.
+- Operate with full or reduced functionality.
+- Recover with minimal disruption.
+- Anticipate failure conditions.
+- Avoid overengineering.
+
+---
+
+# Security Overview
+
+Adopt a zero-trust approach to ensure resilience by incorporating the CIA triad. Use the Microsoft Zero Trust model to verify identities, apply least-privilege access, and assume breaches. Continuously improve security measures to stay ahead of threats. Balance security with reliability to enhance effectiveness and build user trust.
 
 ---
 
@@ -136,6 +142,11 @@ Outages and malfunctions are critical concerns. A reliable workload must survive
 - Plan your security readiness.
 - Protect confidentiality, integrity, and availability.
 - Evolve security posture to stay ahead of attackers.
+
+---
+# Cost Optimization Overview
+
+Design architecture with business goals, ROI, and financial constraints in mind. Consider budget alignment, spending patterns, and resource utilization. A cost-optimized workload balances cost with security, scalability, resilience, and operability. Prioritize long-term strategies with continuous monitoring and repeatable processes to avoid risky, short-term cost reductions.
 
 ---
 
@@ -147,12 +158,24 @@ Outages and malfunctions are critical concerns. A reliable workload must survive
 
 ---
 
+# Operational Excellence Overview
+
+DevOps practices ensure workload quality through standardized workflows and team cohesion. Minimize process variance, human error, and customer disruption. Continuously evaluate and improve operations to meet business and compliance requirements. Aim for reliable and predictable workloads.
+
+---
+
 # Operational Excellence Design Principles
 
 - Embrace DevOps culture.
 - Evolve operations with observability.
 - Deploy with confidence.
 - Automate for efficiency.
+
+---
+
+# Performance Efficiency Overview
+
+Performance efficiency ensures workloads meet user expectations. Optimize resource utilization, scalability, and responsiveness. Monitor performance metrics to identify bottlenecks and optimize resource allocation. Continuously improve performance to meet user needs and business goals.
 
 ---
 
@@ -202,6 +225,15 @@ Outages and malfunctions are critical concerns. A reliable workload must survive
 - **Informed Decisions**
 - **Expert Insights**
 - **Influential Guidance**
+
+---
+
+# WAF Assessment
+
+- **Assessments**
+- **Recommendations**
+- **Actionable Insights**
+- **Optimization Strategies**
 
 ---
 
