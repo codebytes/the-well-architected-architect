@@ -5,11 +5,8 @@ footer: 'Chris Ayers | Senior SRE, Microsoft'
 paginate: true
 ---
 
-![bg](./img/intro.png)
-
----
-
-![bg](./img/feeback.png)
+# The Well-Architected Architect
+## Chris Ayers
 
 ---
 
@@ -23,8 +20,8 @@ paginate: true
 <i class="fa-brands fa-linkedin"></i> LinkedIn: - [chris\-l\-ayers](https://linkedin.com/in/chris-l-ayers/)
 <i class="fa fa-window-maximize"></i> Blog: [https://chris-ayers\.com/](https://chris-ayers.com/)
 <i class="fa-brands fa-github"></i> GitHub: [Codebytes](https://github.com/codebytes)
-<i class="fa-brands fa-twitter"></i> Twitter: @Chris\_L\_Ayers
-<i class="fa-brands fa-mastodon"></i> Mastodon: [@Chrisayers@hachyderm.io](https://hachyderm.io/@Chrisayers)
+<i class="fa-brands fa-mastodon"></i> Mastodon: @Chrisayers@hachyderm.io
+~~<i class="fa-brands fa-twitter"></i> Twitter: @Chris_L_Ayers~~
 
 ---
 
@@ -243,12 +240,35 @@ Performance efficiency ensures workloads meet user expectations. Optimize resour
 
 # Resources
 
-- Well-Architected Framework
-- Well-Architected Workloads
-- WAF Service Guides
-- Azure Advisor
-- Azure Architecture Center
+<div class="columns">
+<div>
 
----
+## Links
 
-![bg](./img/feeback.png)
+- [Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/)
+- [Well-Architected Workloads](https://learn.microsoft.com/en-us/azure/well-architected/workloads)
+- [WAF Service Guides](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/?product=popular)
+- [Azure Advisor](https://learn.microsoft.com/en-us/azure/advisor/advisor-overview)
+- [Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/browse/)
+
+</div>
+<div>
+
+## Follow Chris Ayers
+
+<i class="fa-brands fa-bluesky"></i> BlueSky: [@chris-ayers.com](https://bsky.app/profile/chris-ayers.com)
+<i class="fa-brands fa-linkedin"></i> LinkedIn: - [chris\-l\-ayers](https://linkedin.com/in/chris-l-ayers/)
+<i class="fa fa-window-maximize"></i> Blog: [https://chris-ayers\.com/](https://chris-ayers.com/)
+<i class="fa-brands fa-github"></i> GitHub: [Codebytes](https://github.com/codebytes)
+<i class="fa-brands fa-mastodon"></i> Mastodon: @Chrisayers@hachyderm.io
+~~<i class="fa-brands fa-twitter"></i> Twitter: @Chris_L_Ayers~~
+
+</div>
+
+</div>
+
+<!-- Needed for mermaid, can be anywhere in file except frontmatter -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
