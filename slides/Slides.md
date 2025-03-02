@@ -1,7 +1,7 @@
 ---
 marp: true
 theme: custom-default
-footer: 'Chris Ayers | Senior Site Reliability Engineer, Microsoft'
+footer: 'Chris Ayers | chris-ayers.com | Senior SRE, Microsoft'
 paginate: true
 ---
 
@@ -231,7 +231,6 @@ A reliable workload must survive outages and malfunctions while continuing to co
 
 **Common Challenges:**
 
-- Unpredictable usage patterns
 - Correlating costs with performance metrics
 
 **Best Practices:**
