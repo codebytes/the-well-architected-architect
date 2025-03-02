@@ -9,6 +9,8 @@ paginate: true
 
 ## Chris Ayers
 
+![bg right](img/architect.png)
+
 ---
 
 ![bg left:40%](./img/portrait.png)
