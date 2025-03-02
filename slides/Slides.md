@@ -1,7 +1,7 @@
 ---
 marp: true
 theme: custom-default
-footer: 'Chris Ayers | Senior SRE, Microsoft'
+footer: 'Chris Ayers | Senior Site Reliability Engineer, Microsoft'
 paginate: true
 ---
 
@@ -15,340 +15,531 @@ paginate: true
 
 ## Chris Ayers
 
-### Senior Site Reliability Engineer<br>Azure CXP AzRel<br>Microsoft
+_Senior Site Reliability Engineer_
+_Azure CXP AzRel_
+_Microsoft_
 
 <i class="fa-brands fa-bluesky"></i> BlueSky: [@chris-ayers.com](https://bsky.app/profile/chris-ayers.com)  
 <i class="fa-brands fa-linkedin"></i> LinkedIn: - [chris\-l\-ayers](https://linkedin.com/in/chris-l-ayers/)  
 <i class="fa fa-window-maximize"></i> Blog: [https://chris-ayers\.com/](https://chris-ayers.com/)  
 <i class="fa-brands fa-github"></i> GitHub: [Codebytes](https://github.com/codebytes)  
-<i class="fa-brands fa-mastodon"></i> Mastodon: @Chrisayers@hachyderm.io  
-~~<i class="fa-brands fa-twitter"></i> Twitter: @Chris_L_Ayers~~  
+<i class="fa-brands fa-mastodon"></i> Mastodon: [@Chrisayers@hachyderm.io](https://hachyderm.io/@Chrisayers)
+~~<i class="fa-brands fa-twitter"></i> Twitter: [@Chris_L_Ayers](https://twitter.com/Chris_L_Ayers)~~  
 
 ---
 
 # Agenda
 
-- Architecture
-- Azure Well-Architected Framework
+- Solution Architecture Fundamentals
+- Microsoft Azure Well-Architected Framework
 - Pillar Deep Dive
-- Trade-offs
-- WAF Service Guides Overview
-- Tools
+- Trade-Offs
+- WAF Service Guides & Impact
+- Well-Architected Workloads
 - Q&A
+
+---
+
+# Solution Architecture Fundamentals
+
+- Decision-making framework  
+- Cloud design patterns  
+- Forward-thinking design  
+- Design for supportability  
+- Continuous skill enhancement  
+- Collaboration for success  
+- Methodical design approach
+
+---
+
+# Have a Decision-Making Framework
+
+- **Identify & Log Decisions:** List expected choices early  
+- **Make Informed Decisions:** Consider tradeoffs, risk, effort, and reversibility  
+- **Document with ADRs:** Record the rationale behind each choice  
+- **Follow Up:** Implement, communicate, and learn from outcomes
+
+---
+
+# Know Cloud Design Patterns
+
+- Recognize both functional and nonfunctional requirements  
+- Map design challenges to standardized cloud patterns  
+- Leverage proven patterns for reliability, security, cost, and performance
+
+---
+
+# Be Forward-Thinking
+
+- **Plan for Change:** Anticipate workload evolution and future needs  
+- **Growth & Compliance:** Factor in scaling, regional expansion, and compliance changes  
+- **Risk Analysis:** Evaluate preview features and avoid design cliffs  
+- **Future-Proof:** Design with flexibility for long-term success
+
+---
+
+# Design for Supportability
+
+- **Cloud Provider Support:** Ensure configurations align with provider best practices  
+- **Operational Visibility:** Build in monitoring and clear insights for operations teams  
+- **Customer Support:** Design to facilitate efficient customer issue resolution
+
+---
+
+# Maintain and Enhance Your Skills
+
+- **Education:** Pursue training and certifications  
+- **Community:** Engage with architecture communities and forums  
+- **Exploration:** Participate in hackathons and exploratory exercises
+
+---
+
+# Collaborate for Success
+
+- Leverage vendor expertise and consultative sessions  
+- Engage with cloud solution architects for design reviews  
+- Use external feedback to refine and optimize your architecture
+
+---
+
+# Be Methodical in Your Design Approach
+
+- **Use Frameworks:** Combine WAF, TOGAF, and personal techniques (e.g., mind mapping)  
+- **Structured Process:** Follow checklists, assessments, and reference materials  
+- **Clear Communication:** Emphasize intentional decision-making and transparency
 
 ---
 
 # Microsoft Azure Well-Architected Framework
 
-The Azure Well-Architected Framework drives tangible business outcomes by guiding organizations to:
+![bg right:60% fit](img/waf.png)
 
-- **Enhance Resilience:** Achieve higher availability and faster recovery during outages  
-- **Improve Security:** Protect critical data with proactive, risk-managed approaches  
-- **Optimize Costs:** Streamline resource usage to reduce waste and lower expenses  
-- **Accelerate Innovation:** Empower teams to deploy new features faster  
-- **Boost Operational Excellence:** Ensure smooth operations through robust monitoring and automation
+---
+
+# Microsoft Azure Well-Architected Framework Goals
+
+The Azure Well-Architected Framework drives real world business outcomes by guiding organizations to:
+
+- **Enhance Resilience:** Higher availability and faster recovery  
+- **Improve Security:** Proactive protection of critical data  
+- **Optimize Costs:** Streamlined resource usage  
+- **Accelerate Innovation:** Faster feature deployment  
+- **Boost Operational Excellence:** Robust monitoring and automation
 
 ---
 
 # Business Impact & Real-World Examples
 
-## Driving Value Through the Framework
+- **Enhanced Resilience:** Reduced downtime by up to 40% for a global retailer  
+- **Cost Savings:** Lowered operational costs by 25% for a financial firm  
+- **Operational Agility:** Faster deployments and improved customer satisfaction
 
-- **Enhanced Resilience**  
-  *Case Study:* A multinational retail company reduced system downtime by 40% during peak periods
-
-- **Cost Savings**  
-  *Case Study:* A financial services firm cut operational costs by 25% while boosting performance
-
-- **Operational Agility**  
-  Organizations report faster deployments and improved customer satisfaction with secure, scalable solutions
-
-*Takeaway:*  
-Adopting the framework transforms technical improvements into measurable business benefits
+_Framework adoption transforms technical improvements into measurable business impacts._
 
 ---
 
 # Framework Benefits
 
-The Azure Well-Architected Framework helps workloads to:
-
-- Remain resilient, available, and recoverable
-- Achieve required levels of security
-- Deliver a strong return on investment
-- Support responsible development and operations
-- Meet performance targets within acceptable timeframes
+- Resilient, available, and recoverable workloads  
+- Strong security and risk management  
+- Optimized costs with high ROI  
+- Support for agile development and operations  
+- Consistent performance and scalability
 
 ---
 
 # The Five Pillars
 
-## Microsoft Azure Well-Architected Framework Pillars
-
 | **Reliability**                    | **Security**                      | **Cost Optimization**             | **Operational Excellence**           | **Performance Efficiency**           |
 |------------------------------------|-----------------------------------|-----------------------------------|--------------------------------------|--------------------------------------|
-| Resiliency, availability, recovery | Data protection, threat detection | Budgeting, waste reduction, efficiency | Observability, DevOps, safe deployments | Scalability, load testing, performance monitoring |
+| Resiliency, availability, recovery | Data protection, threat detection | Budgeting, waste reduction        | Observability, DevOps, safe deployments | Scalability, load testing, monitoring |
 
 ---
 
-# Reliability Design Principles
+## Pillar Design Principles: Reliability
 
-- **Business Requirements:** Focus on the workload's intended utility  
-- **Resilience:** Operate with full or reduced functionality  
-- **Recovery:** Recover with minimal disruption  
-- **Operations:** Anticipate failure conditions  
-- **Simplicity:** Avoid overengineering  
+A reliable workload must survive outages and malfunctions while continuing to consistently provide its intended functionality.
+
+- **Business Requirements:** Requirements must cover user experience, data, workflows, and characteristics that are unique to the workload.
+- **Resilience:** Operate with full or reduced functionality
+- **Recovery:** Recover with minimal disruption
+- **Operations:** Anticipate failure conditions
+- **Simplicity:** Avoid overengineering
 
 ---
 
-# Reliability Deep Dive
+## Pillar Deep Dive: Reliability
 
-**Detailed Scenarios:**
+**Common Scenarios:**
 
-- Systems remain available during regional or service-specific failures  
-- Applications withstand unexpected traffic spikes without degradation  
+- Systems remain available during regional or service-specific failures
+- Applications withstand unexpected traffic spikes without degradation
 
 **Common Challenges:**
 
-- Balancing redundancy with cost efficiency  
-- Managing failover across multiple regions and environments  
+- Managing failover across multiple regions and environments
 
 **Best Practices:**
 
-- Design for multi-region redundancy and automated failover  
-- Regularly test disaster recovery and resiliency procedures  
-- Implement robust monitoring and alerting systems  
+- Design for multi-region redundancy and automated failover
+- Regularly test disaster recovery and resiliency procedures
+- Implement robust monitoring and alerting systems
 
 ---
 
-# Security Design Principles
+## Pillar Design Principles: Security
 
-- **Plan Security Readiness:** Establish a proactive security posture  
-- **Protect Critical Assets:** Ensure confidentiality, integrity, and availability  
-- **Evolve Continuously:** Stay ahead of emerging threats  
+- **Plan Security Readiness:** Establish a proactive security posture
+- **Protect Critical Assets:** Ensure confidentiality, integrity, and availability
+- **Evolve Continuously:** Stay ahead of emerging threats
 
 ---
 
-# Security Deep Dive
+## Pillar Deep Dive: Security
 
-**Detailed Scenarios:**
+**Common Scenarios:**
 
-- Safeguarding sensitive customer and financial data  
-- Meeting strict regulatory and compliance requirements  
+- Safeguarding sensitive customer and financial data
+- Meeting strict regulatory and compliance requirements
 
 **Common Challenges:**
 
-- Keeping pace with evolving cyber threats  
-- Managing complex identity and access control  
+- Keeping pace with evolving cyber threats
 
 **Best Practices:**
 
-- Adopt a layered security strategy (defense in depth)  
-- Conduct regular vulnerability assessments and audits  
-- Use automated tools for continuous monitoring and incident response  
+- Adopt a layered security strategy (defense in depth)
+- Conduct regular vulnerability assessments and audits
+- Use automated tools for continuous monitoring and incident response
 
 ---
 
-# Cost Optimization Design Principles
+## Pillar Design Principles: Cost Optimization
 
-- **Discipline:** Develop robust cost-management practices  
-- **Mindset:** Focus on efficiency in resource usage  
-- **Monitoring:** Continuously analyze and optimize spending  
+- **Discipline:** Develop robust cost-management practices
+- **Mindset:** Focus on efficiency in resource usage
+- **Monitoring:** Continuously analyze and optimize spending
 
 ---
 
-# Cost Optimization Deep Dive
+## Pillar Deep Dive: Cost Optimization
 
-**Detailed Scenarios:**
+**Common Scenarios:**
 
-- Dynamically scaling resources during peak usage  
-- Optimizing workloads to minimize overprovisioning  
+- Dynamically scaling resources during peak usage
+- Optimizing workloads to minimize overprovisioning
 
 **Common Challenges:**
 
-- Unpredictable usage patterns  
-- Correlating costs with performance metrics  
+- Unpredictable usage patterns
+- Correlating costs with performance metrics
 
 **Best Practices:**
 
-- Utilize cost management and monitoring tools  
-- Implement auto-scaling and right-sizing strategies  
-- Regularly review and adjust cost strategies based on data  
+- Utilize cost management and monitoring tools
+- Implement auto-scaling and right-sizing strategies
+- Regularly review and adjust cost strategies based on data
 
 ---
 
-# Operational Excellence Design Principles
+## Pillar Design Principles: Operational Excellence
 
-- **Embrace DevOps:** Foster a culture of continuous improvement  
-- **Enhance Observability:** Implement robust monitoring practices  
-- **Deploy Confidently:** Streamline deployment processes  
-- **Automate:** Increase efficiency through process automation  
+- **Embrace DevOps:** Foster a culture of continuous improvement
+- **Enhance Observability:** Implement robust monitoring practices
+- **Deploy Confidently:** Streamline deployment processes
+- **Automate:** Increase efficiency through process automation
 
 ---
 
-# Operational Excellence Deep Dive
+## Pillar Deep Dive: Operational Excellence
 
 **Detailed Scenarios:**
 
-- Coordinating deployments across multiple teams  
-- Maintaining high availability in complex environments  
+- Coordinating deployments across multiple teams
 
 **Common Challenges:**
 
-- Bridging the gap between development and operations  
-- Ensuring consistent performance during rapid release cycles  
+- Bridging the gap between teams
+- Ensuring consistent performance during rapid release cycles
 
 **Best Practices:**
 
-- Embrace CI/CD practices  
-- Establish clear operating procedures and incident response plans  
-- Leverage observability tools for real-time monitoring  
+- Embrace CI/CD practices
+- Establish clear operating procedures and incident response plans
+- Leverage observability tools for real-time monitoring
 
 ---
 
-# Performance Efficiency Design Principles
+## Pillar Design Principles: Performance Efficiency
 
-- **Set Realistic Targets:** Establish achievable performance goals  
-- **Meet Capacity Needs:** Ensure sufficient resources are available  
-- **Optimize Continuously:** Enhance efficiency through ongoing improvements  
+- **Set Realistic Targets:** Establish achievable performance goals
+- **Meet Capacity Needs:** Ensure sufficient resources are available
+- **Optimize Continuously:** Enhance efficiency through ongoing improvements
 
 ---
 
-# Performance Efficiency Deep Dive
+## Pillar Deep Dive: Performance Efficiency
 
 **Detailed Scenarios:**
 
-- Delivering high performance under variable loads  
-- Optimizing application speed and responsiveness  
+- Delivering high performance under variable loads
+- Optimizing application speed and responsiveness
 
 **Common Challenges:**
 
-- Balancing speed with resource constraints  
-- Adapting to changing performance demands  
+- Balancing speed with resource constraints
 
 **Best Practices:**
 
-- Conduct regular load testing and benchmarking  
-- Utilize caching, CDNs, and optimized code practices  
-- Implement auto-scaling to adjust dynamically to demand  
+- Conduct regular load testing and benchmarking
+- Utilize caching, CDNs, and optimized code practices
+- Implement auto-scaling to adjust dynamically to demand
+
+---
+
+# Trade-Offs
+
+![w:960px](img/tug-of-war.png)
 
 ---
 
 # Trade-Offs in Applying the Framework
 
-**Balancing Considerations:**
 
-- **Cost vs. Performance**  
-- **Security vs. Usability**  
-- **Operational Complexity vs. Agility**  
-- **Resilience vs. Efficiency**
-
-**Key Considerations:**
-
-- Align with business priorities  
-- Use scenario planning to assess impacts  
-- Continuously iterate and monitor  
+- Align trade-offs with business priorities
+- Use scenario planning to assess impacts
+- Continuously iterate and monitor performance
 
 ---
 
-![bg](./img/tradeoff-cost.jpg)
+![bg](img/tradeoff-cost.jpg)
 
 ---
 
 # Trade-Off: Reliability vs. Cost Optimization
 
-**Reliability Priorities**  
-- Multi-region redundancy, advanced failover  
-- Higher uptime, minimal recovery time  
+<div class="columns">
+<div>
 
-**Cost Optimization Priorities**  
-- Single-region or fewer redundancies  
-- Lower costs but potential downtime  
+## Prioritizing Reliability
 
-**Example:** A large retailer invests in multi-region failover for continuous operations, while a startup accepts potential downtime to save costs.
+- Invest in multi-region redundancy and automated failover  
+- Deploy backup systems and advanced monitoring  
+- Design for maximum uptime and minimal recovery time
+
+</div>
+<div>
+
+## Prioritizing Cost Optimization
+
+- Streamline deployments to reduce redundant resources  
+- Select lower-cost regions or single-zone configurations  
+- Accept moderate recovery times to keep expenses in check
+
+</div>
+</div>
+
+<!-- **Detailed Example:**  
+A multinational retailer chooses multi-region deployments with real-time failover to ensure business continuity during outages (prioritizing reliability). In contrast, a startup deploys in a single region with minimal redundancy to optimize costs while accepting potential downtime during failures. -->
 
 ---
 
 # Trade-Off: Security vs. Performance Efficiency
 
-**Security Priorities**  
-- Encrypted data, strict access controls  
-- Higher overhead, possible latency impact  
+<div class="columns">
+<div>
 
-**Performance Priorities**  
-- Streamlined security for minimal overhead  
-- Quick data processing, fast response times  
+## Prioritizing Security
 
-**Example:** A bank enforces robust encryption and monitoring, while an online game platform opts for lightweight security to reduce lag.
+- Implement multi-layered authentication and encryption  
+- Conduct frequent vulnerability assessments and audits  
+- Enforce strict access controls and compliance measures
+
+</div>
+<div>
+
+## Prioritizing Performance Efficiency
+
+- Use streamlined security protocols to minimize latency  
+- Optimize application throughput with lightweight security measures  
+- Focus on high-speed data processing and minimal overhead
+
+</div>
+</div>
+
+<!-- **Detailed Example:**  
+A financial institution employs robust encryption, multi-factor authentication, and continuous security monitoring to protect sensitive data (prioritizing security). Meanwhile, an online gaming platform opts for streamlined security measures to maximize responsiveness and reduce latency, even if that means a slightly reduced security posture. -->
 
 ---
 
 # Trade-Off: Operational Excellence vs. Cost Optimization
 
-**Operational Excellence Priorities**  
-- Comprehensive monitoring, automated responses  
-- Higher operational overhead but smoother operations  
+<div class="columns">
+<div>
 
-**Cost Optimization Priorities**  
-- Limited tooling, manual processes  
-- Lower costs but increased operational risk  
+## Prioritizing Operational Excellence
 
-**Example:** An enterprise invests in advanced observability and 24/7 ops teams, while a small business relies on basic monitoring to minimize costs.
+- Invest in comprehensive monitoring and automated incident response  
+- Establish robust CI/CD pipelines and detailed SOPs  
+- Enable proactive maintenance with real-time observability
+
+</div>
+<div>
+
+## Prioritizing Cost Optimization
+
+- Limit investments in advanced tooling and automation  
+- Rely on manual processes and simplified monitoring setups  
+- Focus on essential operations to minimize overhead
+
+</div>
+</div>
+
+<!-- **Detailed Example:**  
+An enterprise-level e-commerce platform invests in extensive monitoring tools, automated deployments, and 24/7 operations teams to ensure smooth operations (prioritizing operational excellence). In contrast, a small business adopts a lean approach with basic monitoring and manual incident management to reduce costs. -->
 
 ---
 
 # Trade-Off: Performance Efficiency vs. Reliability
 
-**Performance Priorities**  
-- Lean architecture, minimal latency  
-- Less redundancy for maximum throughput  
+<div class="columns">
+<div>
 
-**Reliability Priorities**  
-- Redundant systems, automated failover  
-- Potential performance overhead for resilience  
+## Prioritizing Performance Efficiency
 
-**Example:** A CDN focuses on speed at scale, while a healthcare app invests in redundancy for guaranteed availability.
+- Optimize architectures for speed and low latency  
+- Use streamlined, lean deployments to maximize throughput  
+- Emphasize rapid scaling and agile resource allocation
+
+</div>
+<div>
+
+## Prioritizing Reliability
+
+- Introduce redundancy and failover mechanisms  
+- Focus on backup systems and error recovery procedures  
+- Accept slight performance overhead to ensure continuous uptime
+
+</div>
+</div>
+
+<!-- **Detailed Example:**  
+A high-traffic content delivery network (CDN) is optimized for rapid data delivery and low latency (prioritizing performance efficiency). Conversely, a critical healthcare application incorporates redundant servers and rigorous failover systems to ensure constant availability, even if that adds a small performance cost. -->
 
 ---
 
 # Trade-Off: Security vs. Operational Excellence
 
-**Security Priorities**  
-- Strict compliance, frequent audits  
-- Slower change cycles, more procedural overhead  
+<div class="columns">
+<div>
 
-**Operational Excellence Priorities**  
-- Rapid deployment, agile processes  
-- Leaner security posture for faster iterations  
+## Prioritizing Security
 
-**Example:** A government agency enforces tight security and slow release cycles, whereas a startup prioritizes quick releases and minimal overhead.
+- Enforce strict controls, regular audits, and comprehensive risk management  
+- Implement detailed logging and multi-layer defense strategies  
+- Prioritize compliance and data protection over rapid changes
+
+</div>
+<div>
+
+## Prioritizing Operational Excellence
+
+- Focus on agile development and rapid deployment cycles  
+- Invest in automation and streamlined processes for quick iterations  
+- Emphasize continuous integration/deployment and proactive monitoring
+
+</div>
+</div>
+
+<!-- **Detailed Example:**  
+A government agency prioritizes extensive security measures—such as continuous audits and controlled access—to meet regulatory demands (prioritizing security), which can slow operational agility. In contrast, an innovative tech startup adopts rapid deployment and agile processes (prioritizing operational excellence), accepting a leaner security approach for faster market responses. -->
 
 ---
 
 # Trade-Off: Performance Efficiency vs. Operational Excellence
 
-**Performance Priorities**  
-- Lightweight monitoring, minimal overhead  
-- Faster scaling, agile resource allocation  
+<div class="columns">
+<div>
 
-**Operational Excellence Priorities**  
-- In-depth monitoring, structured processes  
-- Stable performance but more overhead  
+## Prioritizing Performance Efficiency
 
-**Example:** An e-commerce site uses real-time analytics with minimal overhead for flash sales, while a financial system relies on comprehensive monitoring for consistent uptime.
+- Optimize for minimal latency and high throughput  
+- Use streamlined processes and lightweight monitoring tools  
+- Emphasize rapid scaling and agile resource allocation
+
+</div>
+<div>
+
+## Prioritizing Operational Excellence
+
+- Invest in comprehensive monitoring and structured processes  
+- Implement robust CI/CD pipelines and proactive incident management  
+- Prioritize consistent performance and reliability through rigorous standards
+
+</div>
+</div>
+
+<!-- **Detailed Example:**  
+An e-commerce platform deploys lightweight, real-time analytics to maximize speed during flash sales (prioritizing performance efficiency). In contrast, a financial trading system adopts in-depth monitoring and structured operational protocols to ensure consistent uptime and compliance (prioritizing operational excellence). -->
 
 ---
 
 # Trade-Off: Cost Optimization vs. Security
 
-**Cost Optimization Priorities**  
-- Budget-friendly solutions, limited security tooling  
-- Higher risk acceptance  
+<div class="columns">
+<div>
 
-**Security Priorities**  
-- Advanced threat detection, continuous auditing  
-- Higher expense but reduced risk  
+## Prioritizing Cost Optimization
 
-**Example:** A startup uses basic security to reduce costs, while a government agency invests heavily in threat detection and compliance.
+- Choose cost-effective infrastructure with minimal redundancy  
+- Limit investments in advanced security tools  
+- Accept calculated security risks to maintain lower operational expenses
+
+</div>
+<div>
+
+## Prioritizing Security
+
+- Implement state-of-the-art encryption, multi-factor authentication, and continuous audits  
+- Invest in advanced security infrastructure and dedicated monitoring teams  
+- Prioritize risk mitigation over cost savings, even if expenses rise
+
+</div>
+</div>
+
+<!-- **Detailed Example:**  
+A startup deploys in a single, cost-effective region with basic security measures to minimize expenses (prioritizing cost optimization). Conversely, a government agency invests in robust threat detection and redundant systems to ensure top-tier protection despite higher costs (prioritizing security). -->
+
+---
+
+# Well-Architected Framework Service Guides
+
+A Decision-Making Tool
+
+- Assist in selecting Azure components for your workload  
+- Highlight core features and capabilities essential for excellence  
+- Not exhaustive configuration guides; emphasize what aligns with Well-Architected pillars  
+- Enable informed decisions that support a state of operational excellence
+
+---
+
+# Well-Architected Workloads
+
+- Align workloads with business outcomes using the Azure Well-Architected Framework  
+- Balancing functional requirements and nonfunctional trade-offs  
+- Integrate design fundamentals, trade-offs, and operational best practices
+
+---
+
+# Well-Architected Workloads Examples
+
+- AI
+- Azure Virtual Desktop  
+- Azure VMware Solution  
+- Mission-critical applications  
+- Oracle
+- SaaS Solutions
+- SAP
 
 ---
 
@@ -356,86 +547,40 @@ The Azure Well-Architected Framework helps workloads to:
 
 ---
 
-# Well-Architected Workloads
-
----
-
-## What are Well-Architected Workloads?
-
-- Prioritizes key requirements to achieve specific goals.  
-- Evaluated based on meeting its intended purpose.  
-- Designed to be adaptable, secure, and deliver value.
-
----
-
-# Examples of Well-Architected Workloads
-
-- Azure Virtual Desktop  
-- Azure VMware Solution  
-- Mission-critical workloads  
-- IoT, SAP, Oracle on IaaS  
-
----
-
-# Service Guides
-
-- Assist in decision-making for Azure components within workloads.  
-- Highlight core features through the lens of WAF pillars.  
-
----
-
-# WAF Service Guide Impact
-
-- **Quick Decision-Making Tools**  
-- **Informed Decisions**  
-- **Expert Insights**  
-- **Influential Guidance**
-
----
-
-# WAF Assessment
-
-- **Assessments**  
-- **Recommendations**  
-- **Actionable Insights**  
-- **Optimization Strategies**
-
----
-
 # Q&A
 
 ---
 
-# Resources
-
 <div class="columns">
 <div>
 
-## Links
+## Resources
 
-- [Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/)  
-- [Well-Architected Workloads](https://learn.microsoft.com/en-us/azure/well-architected/workloads)  
-- [WAF Service Guides](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/?product=popular)  
+- [Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/)
+- [Microsoft Learn: Build great solutions with the Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/training/paths/azure-well-architected-framework/)
 - [Azure Advisor](https://learn.microsoft.com/en-us/azure/advisor/advisor-overview)  
 - [Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/browse/)
 
 </div>
 <div>
 
-## Follow Chris Ayers
+## Chris Ayers
+
+_Senior Site Reliability Engineer_
+_Azure CXP AzRel_
+_Microsoft_
 
 <i class="fa-brands fa-bluesky"></i> BlueSky: [@chris-ayers.com](https://bsky.app/profile/chris-ayers.com)  
 <i class="fa-brands fa-linkedin"></i> LinkedIn: - [chris\-l\-ayers](https://linkedin.com/in/chris-l-ayers/)  
 <i class="fa fa-window-maximize"></i> Blog: [https://chris-ayers\.com/](https://chris-ayers.com/)  
 <i class="fa-brands fa-github"></i> GitHub: [Codebytes](https://github.com/codebytes)  
-<i class="fa-brands fa-mastodon"></i> Mastodon: @Chrisayers@hachyderm.io  
-~~<i class="fa-brands fa-twitter"></i> Twitter: @Chris_L_Ayers~~  
+<i class="fa-brands fa-mastodon"></i> Mastodon: [@Chrisayers@hachyderm.io](https://hachyderm.io/@Chrisayers)
+~~<i class="fa-brands fa-twitter"></i> Twitter: [@Chris_L_Ayers](https://twitter.com/Chris_L_Ayers)~~  
 
 </div>
-
 </div>
 
-<!-- Needed for mermaid, can be anywhere in file except frontmatter -->
+<!-- Needed for mermaid -->
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
