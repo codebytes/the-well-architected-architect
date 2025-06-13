@@ -297,12 +297,14 @@ Post-implementation reviews
 </div>
 </div>
 
+<!-- 
 ### 🎯 **Collaboration Artifacts**
 
 - Architecture review boards
 - Design thinking workshops
 - Failure scenario planning
 - Cost optimization sessions
+-  -->
 
 ---
 
