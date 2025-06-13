@@ -5,6 +5,10 @@ footer: 'Chris Ayers | chris-ayers.com | Senior SRE, Microsoft'
 paginate: true
 ---
 
+![bg fill](./img/title.PNG)
+
+---
+
 # The Well-Architected Architect
 
 ## Modernizing Cloud Excellence in 2025
