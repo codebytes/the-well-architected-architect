@@ -1,7 +1,7 @@
 ---
 marp: true
 theme: custom-default
-footer: 'Chris Ayers | chris-ayers.com | Senior SRE, Microsoft'
+footer: 'Chris Ayers | chris-ayers.com | Senior SWE, Microsoft'
 paginate: true
 ---
 
