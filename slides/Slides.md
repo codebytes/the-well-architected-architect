@@ -5,14 +5,6 @@ footer: 'Chris Ayers | chris-ayers.com | Senior SWE, Microsoft'
 paginate: true
 ---
 
-![bg](./img/AzureDevSummit.png)
-
----
-
-<!-- _color: white -->
-
-![bg](./img/ads-background.png)
-
 <div class="columns">
 
 <div>
@@ -47,19 +39,6 @@ _Microsoft_
 <i class="fa-brands fa-github"></i> GitHub: [Codebytes](https://github.com/codebytes)  
 <i class="fa-brands fa-mastodon"></i> Mastodon: [@Chrisayers@hachyderm.io](https://hachyderm.io/@Chrisayers)
 ~~<i class="fa-brands fa-twitter"></i> Twitter: [@Chris_L_Ayers](https://twitter.com/Chris_L_Ayers)~~  
-
----
-
-# Agenda
-
-- Solution Architecture Fundamentals
-- Microsoft Azure Well-Architected Framework
-- Framework Overview & Assessment Cadence
-- Pillar Deep Dive
-- Trade-Offs
-- WAF Service Guides & Impact
-- Well-Architected Workloads
-- Q&A
 
 ---
 
