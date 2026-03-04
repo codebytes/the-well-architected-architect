@@ -29,7 +29,7 @@ paginate: true
 
 ## Chris Ayers
 
-_Senior Software Engineer_
+_Principal Software Engineer_
 _Azure CXP AzRel_
 _Microsoft_
 
@@ -1311,7 +1311,7 @@ A Decision-Making Tool
 
 ## Chris Ayers
 
-_Senior Software Engineer_
+_Principal Software Engineer_
 _Azure CXP AzRel_
 _Microsoft_
 
