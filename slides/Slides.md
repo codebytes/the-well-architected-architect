@@ -124,7 +124,7 @@ Architecture = an intentional decision system, not a diagram.
 4. **Evaluate** — test feasibility, constraints & cross-pillar trade-offs
 5. **Recommend** — propose options w/ rationale; validate with PoCs + KPIs (ADR-ready)
 
-<!-- _footer: "A workload (WAF 2026) = app code + data + AI models + supporting infra. Re-run the loop on every major pivot." -->
+<!-- _footer: "A workload = app code + data + AI models + supporting infra. Re-run the loop on every major pivot." -->
 
 ---
 
@@ -450,6 +450,19 @@ Post-implementation reviews
 
 ---
 
+# Microsoft Azure Well-Architected Framework Goals
+
+The Azure Well-Architected Framework drives real world business outcomes by guiding organizations to:
+
+- **Enhance Resilience:** Higher availability and faster recovery  
+- **Improve Security:** Proactive protection of critical data  
+- **Optimize Costs:** Streamlined resource usage with high ROI  
+- **Accelerate Innovation:** Faster feature deployment and agile operations  
+- **Boost Operational Excellence:** Robust monitoring and automation  
+- **Optimize Performance:** Consistent scalability and right-sized workloads
+
+---
+
 # Business Impact of the WAF
 
 Outcomes from organizations that adopted the framework:
@@ -461,19 +474,6 @@ Outcomes from organizations that adopted the framework:
 - **93/100** security score — Profisee
 
 <!-- _footer: "Source: Forrester Total Economic Impact™ of Azure WAF (Microsoft-commissioned) / Microsoft WAF customer case studies" -->
-
----
-
-# Microsoft Azure Well-Architected Framework Goals
-
-The Azure Well-Architected Framework drives real world business outcomes by guiding organizations to:
-
-- **Enhance Resilience:** Higher availability and faster recovery  
-- **Improve Security:** Proactive protection of critical data  
-- **Optimize Costs:** Streamlined resource usage with high ROI  
-- **Accelerate Innovation:** Faster feature deployment and agile operations  
-- **Boost Operational Excellence:** Robust monitoring and automation  
-- **Optimize Performance:** Consistent scalability and right-sized workloads
 
 ---
 
@@ -560,7 +560,7 @@ If you haven't run the runbook, you don't have a runbook.
 
 # Reliability - Architecture Example
 
-![Resilient architecture illustration showing redundant regional deployment w:1000px](./img/resilient.png)
+![Resilient architecture illustration showing redundant regional deployment w:850px center](./img/resilient.png)
 
 Health-routed traffic → AZ-redundant active region → paired-region warm standby → geo-replicated data → DLQs for poison messages. Each layer maps to a tested failure mode, not a hypothetical one.
 
@@ -672,8 +672,6 @@ Zero Trust by default. Identity is the perimeter. Threat-model first, assume bre
 ---
 
 # Security - Secure Development Lifecycle
-
-<!-- _class: dense -->
 
 <div class="columns">
 <div>
@@ -1385,7 +1383,7 @@ Monthly drift scan → Quarterly deep review → Annual strategic recalibration.
 
 # Well-Architected Workloads
 
-A **workload** (WAF 2026) = app code + data + **AI models** + supporting infra, working together to deliver a business outcome.
+A **workload** = app code + data + **AI models** + supporting infra, working together to deliver a business outcome.
 
 - Align workload decisions to business outcomes, not service catalogs
 - Balance functional requirements with non-functional trade-offs
