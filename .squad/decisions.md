@@ -197,6 +197,66 @@
 
 ---
 
+## R3–R5 Overflow Remediation & Narrative Restructure
+
+### Overflow Fix Rounds (R3–R5)
+
+**Scope:** 6 sequential rounds fixing Marp deck overflow across 7 pillar/section slides.
+
+**Round 3 (R3)** — Initial overflow pass, post-Uhura validation:
+- Kirk (kirk-1): Fundamentals/WAF/Trade-Off slides fixed
+- Scotty (scotty-1): Reliability (incl. 215px Practices)
+- Chekov (chekov-1): Security (incl. 224px Practices — worst in deck)
+- Spock (spock-1): Cost Optimization (3 slides)
+- McCoy (mccoy-1): OpEx (incl. 136px Practices)
+- Sulu (sulu-1): Performance Efficiency (incl. 147px Practices)
+- Uhura (uhura-2): Applied theme safety net `section { overflow: hidden }` in custom-techorama.css
+- Uhura (uhura-3): Revalidation after R3 → 9🔴/8🟡/7🟢
+
+**Round 4 (R4)** — Second overflow fix pass:
+- Kirk (kirk-2): 4 remaining overflow slides
+- Scotty (scotty-2): 3 Reliability slides
+- Chekov (chekov-2): 3 Security slides
+- Spock (spock-2): Cost slides; identified duplicated blockquote left for manual review
+- McCoy (mccoy-2): 3 OpEx slides
+- Sulu (sulu-2): Performance At-a-Glance
+- Uhura (uhura-4): Revalidation → 5🔴/5🟡/7🟢
+- **Note:** Chekov-2, McCoy-2, Spock-2 inadvertently committed in this round (violating implicit no-commit rule). Explicit "DO NOT COMMIT" added to all R5 prompts; 100% compliance thereafter.
+
+**Round 5 (R5)** — Final overflow fix with explicit no-commit rule:
+- Kirk (kirk-3): 3 final Fundamentals fixes; At-a-Glance Quick Win blocks moved to `_footer:` or deleted
+- Scotty (scotty-3): 3 final Reliability fixes
+- Chekov (chekov-3): 2 final Security fixes
+- Spock (spock-3): 2 final Cost fixes
+- McCoy (mccoy-3): 2 final OpEx fixes
+- Sulu (sulu-3): 1 final Performance fix
+
+### Narrative Restructure (R5b–R5f)
+
+**R5b — Business Impact & Framework Consolidation:**
+- Kirk (kirk-4): Moved Business Impact to slide 3; cut "What's New in the WAF" slide; merged "Framework Benefits" into "WAF Goals" (6 bullets)
+
+**R5c — Business Impact Verification & Relocation:**
+- Coordinator verified Forrester TEI 304% ROI source (Azure WAF-specific, Microsoft-commissioned)
+- Kirk (kirk-5): Moved Business Impact back to WAF section (after 5-pillar diagram, before merged WAF Goals); added Marp `_footer:` with Forrester TEI attribution; reframed title to "Business Impact of the WAF"
+
+**R5d — Final Validation:**
+- Uhura (uhura-5): Final-final validation → 86 sections confirmed, R5b structural changes verified, 4🔴/1🟡 overflow remaining (Chris chose to ship with `overflow:hidden` safety net)
+
+**R5e — Theme Contrast Fix:**
+- Uhura (uhura-6): Added `section.lead strong { color: var(--techo-gold); }` to custom-techorama.css — fixes navy-on-navy bold contrast on 7 lead-class pillar intro slides
+
+**R5f — Title Polish:**
+- Kirk (kirk-6): Stripped year markers from slide titles (e.g., "Emerging 2026" → "Emerging")
+
+### Coordinator-Side Lessons
+
+- **No-commit rule:** When working in worktree-local mode where Chris squashes, make NO-COMMIT explicit in every spawn prompt. Three R4 agents (Chekov-2, McCoy-2, Spock-2) violated the implicit rule; explicit block in R5 achieved 100% compliance.
+- **Forrester TEI source:** 304% ROI is Azure WAF-specific (not generic "good architecture"), so Business Impact belongs IN the WAF section, not in Fundamentals intro.
+- **Theme safety net:** `section { overflow: hidden }` lets the deck ship visually clean even with measured underlying overflow on 5 slides.
+
+---
+
 ## Active Decisions
 
 No decisions recorded yet.

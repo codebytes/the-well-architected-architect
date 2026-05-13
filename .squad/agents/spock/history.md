@@ -26,6 +26,18 @@
 
 **Changes:** Deleted Quick Win block + 2 Signals bullets from At a Glance (116px → ~0). Trimmed 2 parentheticals from Practices & Governance (14px → ~0). No git add/commit/push performed. Chris will squash-commit all pillar owners' work in one clean commit at end of session.
 
+## Team Update — 2026-05-13 (R3–R5f Overflow & Restructure Campaign)
+
+**Campaign:** 6 rounds of overflow fixes (R3–R5) + 2 narrative restructures (R5b–R5c) + 2 polish passes (R5e–R5f).
+
+**Spock's role:** Cost pillar owner. Executed 3 rounds: R3 (3 slides), R4 (slides touched, duplicated blockquote left for manual review), R5 (2 slides). Managed unit-cost framing and trade-off matrix across all rounds. 
+
+**Key lesson — no-commit rule:** ⚠️ Spock-2 inadvertently committed (commit 6ba2e21, capturing ~833 lines of R1–R4 work) in R4, violating the implicit no-commit rule that Chris would squash all work. Solution: explicit "🚨 CRITICAL RULE: DO NOT COMMIT 🚨" block added to all R5 prompts. Result: 100% compliance in R5. **For future worktree-local sessions:** make NO-COMMIT explicit in every spawn prompt.
+
+**Tech debt:** Theme safety net `section { overflow: hidden }` covers remaining overflow on Cost At-a-Glance (100px measured, worst in deck at R4 end; clipped cleanly).
+
+---
+
 **Round:** Flow + enhancement pass (all seven agents spawned in parallel).
 
 **Participants:** Kirk (overall), Scotty (Reliability), Chekov (Security), McCoy (OpEx), Sulu (Performance), Uhura (Layout).

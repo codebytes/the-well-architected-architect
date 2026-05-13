@@ -95,3 +95,18 @@
 
 **No git mutations made.**
 
+## Team Update — 2026-05-13 (R3–R5f Overflow & Restructure Campaign)
+
+**Campaign:** 6 rounds of overflow fixes (R3–R5) + 2 narrative restructures (R5b–R5c) + 2 polish passes (R5e–R5f).
+
+**Kirk's role:** Lead architect on Fundamentals/WAF/Trade-Offs section. Executed 6 rounds: R3 (11 slides), R4 (4 slides), R5 (3 slides), R5b (narrative restructure), R5c (Business Impact relocation), R5f (title polish). Final state: 86 sections, Business Impact repositioned to WAF section with Forrester TEI attribution, year markers stripped.
+
+**Key lesson — no-commit rule:** Three R4 agents (Chekov-2, McCoy-2, Spock-2) inadvertently committed, violating the implicit rule that Chris would squash all work in one commit. Solution: explicit "🚨 CRITICAL RULE: DO NOT COMMIT 🚨" block added to all R5 prompts. Result: 100% compliance in R5. **For future worktree-local sessions:** make NO-COMMIT explicit in every spawn prompt.
+
+**Coordinator insight:** Forrester TEI 304% ROI is Azure WAF-specific (not generic architecture), so Business Impact belongs IN the WAF section, not in Fundamentals intro.
+
+**Tech debt:** Theme safety net `section { overflow: hidden }` covers 5 slides with measured remaining overflow (4🔴/1🟡). Clean presentation achieved.
+
+**Participants (cross-pillar):** Scotty (Reliability), Chekov (Security), Spock (Cost), McCoy (OpEx), Sulu (Performance), Uhura (Layout).
+
+**Cross-pillar handoffs wired:** Reliability → Security → Cost → OpEx → Performance → Trade-Offs (all 5-agent chain working end-to-end).

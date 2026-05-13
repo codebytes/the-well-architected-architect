@@ -53,7 +53,17 @@
 
 **Hard rules respected:** Engineering/Operations split untouched; footer handoff pattern preserved.
 
-## Team Update — 2026-05-13
+## Team Update — 2026-05-13 (R3–R5f Overflow & Restructure Campaign)
+
+**Campaign:** 6 rounds of overflow fixes (R3–R5) + 2 narrative restructures (R5b–R5c) + 2 polish passes (R5e–R5f).
+
+**Scotty's role:** Reliability pillar owner. Executed 3 rounds: R3 (4 slides), R4 (3 slides), R5 (final cleanup). Fixed worst-case 215px Practices overflow, preserved all flow-level maturity language and cross-pillar handoffs throughout. 
+
+**Key lesson — no-commit rule:** Three R4 agents (Chekov-2, McCoy-2, Spock-2) inadvertently committed, violating the implicit rule that Chris would squash all work in one commit. Solution: explicit "🚨 CRITICAL RULE: DO NOT COMMIT 🚨" block added to all R5 prompts. Result: 100% compliance in R5. **For future worktree-local sessions:** make NO-COMMIT explicit in every spawn prompt.
+
+**Tech debt:** Theme safety net `section { overflow: hidden }` covers remaining overflow on Reliability At-a-Glance (50px measured, clipped cleanly). Deck shipped with this coverage.
+
+---
 
 **Round:** Flow + enhancement pass (all seven agents spawned in parallel).
 

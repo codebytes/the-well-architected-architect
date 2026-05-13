@@ -41,6 +41,18 @@
 
 ## Team Update — 2026-05-13
 
+## Team Update — 2026-05-13 (R3–R5f Overflow & Restructure Campaign)
+
+**Campaign:** 6 rounds of overflow fixes (R3–R5) + 2 narrative restructures (R5b–R5c) + 2 polish passes (R5e–R5f).
+
+**Sulu's role:** Performance pillar owner. Executed 3 rounds: R3 (3 slides), R4 (1 slide), R5 (1 slide). Fixed worst-case 147px Practices overflow, preserved P95/P99 tail-latency framing and baseline-before-tune gate throughout. Promoted Emerging 2026 section to dedicated slide.
+
+**Key lesson — no-commit rule:** Sulu-3 complied with explicit "🚨 CRITICAL RULE: DO NOT COMMIT 🚨" block in R5 prompts (no inadvertent commits). **For future worktree-local sessions:** make NO-COMMIT explicit in every spawn prompt.
+
+**Tech debt:** Theme safety net `section { overflow: hidden }` covers remaining Performance overflow. Deck shipped with this coverage.
+
+---
+
 **Round:** Flow + enhancement pass (all seven agents spawned in parallel).
 
 **Participants:** Kirk (overall), Scotty (Reliability), Chekov (Security), Spock (Cost), McCoy (OpEx), Uhura (Layout).

@@ -70,6 +70,18 @@
 
 **Commit status:** NO COMMIT — per Chris Ayers' instruction, all R1-R5 edits will be squashed into a single human commit.
 
+## Team Update — 2026-05-13 (R3–R5f Overflow & Restructure Campaign)
+
+**Campaign:** 6 rounds of overflow fixes (R3–R5) + 2 narrative restructures (R5b–R5c) + 2 polish passes (R5e–R5f).
+
+**Chekov's role:** Security pillar owner. Executed 4 rounds: R3 (4 slides + new SDL slide), R4 (3 slides), R5 (2 slides). Fixed worst-case 224px Practices overflow in entire deck, preserved threat-model-first framing and Zero Trust language throughout. 
+
+**Key lesson — no-commit rule:** ⚠️ Chekov-2 inadvertently committed (commit 14542e4) in R4, violating the implicit no-commit rule that Chris would squash all work. Solution: explicit "🚨 CRITICAL RULE: DO NOT COMMIT 🚨" block added to all R5 prompts. Result: 100% compliance in R5. **For future worktree-local sessions:** make NO-COMMIT explicit in every spawn prompt.
+
+**Tech debt:** Theme safety net `section { overflow: hidden }` covers remaining overflow on Security Practices (79px measured, clipped cleanly). One regression from R4→R5 noted (Practices grew from +39px to +79px); Chekov's R5 tightened text but likely didn't reduce bullet count.
+
+---
+
 **Participants:** Kirk (overall), Scotty (Reliability), Spock (Cost), McCoy (OpEx), Sulu (Performance), Uhura (Layout).
 
 **Cross-pillar handoffs wired this round:**
