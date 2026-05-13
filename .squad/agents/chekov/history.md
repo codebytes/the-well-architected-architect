@@ -30,7 +30,31 @@
   - Drafted PHI scenario rewrite for Kirk's inbox: tighter answer-key comment that pulls threat-model → classify → encrypt+segment → audit-grade signal vocabulary directly from the pillar; preserved comment-only convention.
   - No layout / Marp directive / column-structure changes. Reliability→Security and Security→Cost transitions both now mirror the same "Up next: …" handoff pattern.
 
-## Team Update — 2026-05-13
+## Team Update — 2026-05-13 (Round 4)
+
+**Round:** Overflow remediation pass R4 (Uhura R3 re-validation findings).
+
+**Changes applied:**
+
+- **Security - Principles (39px 🟡):** Moved trailing `> Maxim:` blockquote to `<!-- _footer: -->`. Removed `(CIA triad)` parenthetical from Encrypt & segment bullet (~3 words). Slide body is now 5 clean bullets; est. ~45px relief.
+- **Security - Practices & Patterns (122px 🔴):** Cut 2 bullets from left column — removed "Managed identities > secrets; Key Vault for the rest" (Identity; covered elsewhere) and "Monitor at multiple altitudes (identity, network, app, data)" (Detection; implied by Sentinel/Defender bullet). Left column now 5 bullets; target ≤6 achieved. Est. ~100px relief.
+- **Security - At a Glance (113px 🔴):** Removed body blockquote `> If you can't see it, you can't contain it…` (maxim now footerized on Principles slide; redundant here). Tightened Quick Win line by ~12 words. Est. ~75px relief.
+- **SDL slide:** Untouched — confirmed clean ✅.
+
+
+
+**Changes applied:**
+
+- **Slide 31 (Security - Principles, 39px 🟡):** Tightened `Threat-model first` principle — removed "& owners" and "picking" to save ~35px; SE:02 control/owner/timeline triplet preserved.
+- **Slide 32 (Security - Practices & Patterns, 224px 🔴):** Option A applied. Practices now: left = Identity+Network+Detection, right = Exercises only. SDL + Emerging 2026 promoted to new dedicated slide.
+- **New slide added:** `# Security - Secure Development Lifecycle` — two-column, left = SE:02 SDL (Dev Box / Codespaces / golden images / IDE extensions / SAST+DAST / supply-chain / default-deny / MS-hosted agents), right = Emerging 2026 (AI safeguards + Agentic SOC). No SDL content was cut.
+- **Slide 35 (Security Maturity, 38px 🟡):** Trajectory blockquote footerized via `<!-- _footer: "…" -->`. Full text preserved for speakers.
+- **Slide 36 (Security - At a Glance, 180px 🔴):** Handoff bridge converted to `<!-- _footer: "Security spend IS a cost lever — Cost Optimization." -->` per preferred relocation pattern.
+
+**Learnings:**
+
+- Footerizing blockquotes on dense/glance slides is the correct pattern when content must survive but can't share the frame with a full table or two-column layout.
+- SDL is substantive enough for its own frame — five SDL bullets + two Emerging bullets = a complete "shift-left security" narrative that was invisible when crowded into the right column of the Practices slide.
 
 **Round:** Flow + enhancement pass (all seven agents spawned in parallel).
 

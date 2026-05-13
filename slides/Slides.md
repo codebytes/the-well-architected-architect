@@ -124,7 +124,7 @@ Architecture = an intentional decision system, not a diagram.
 4. **Evaluate** — test feasibility, constraints & cross-pillar trade-offs
 5. **Recommend** — propose options w/ rationale; validate with PoCs + KPIs (ADR-ready)
 
-> A workload (WAF 2026) = app code + data + **AI models** + supporting infra. Re-run the loop on every major pivot, not just at kickoff.
+<!-- _footer: "A workload (WAF 2026) = app code + data + AI models + supporting infra. Re-run the loop on every major pivot." -->
 
 ---
 
@@ -152,7 +152,7 @@ Architecture = an intentional decision system, not a diagram.
 </div>
 </div>
 
-> Instrument the seams so you see the cliff while you still have runway.
+<!-- _footer: "Instrument the seams so you see the cliff while you still have runway." -->
 
 ---
 
@@ -681,9 +681,9 @@ Zero Trust by default. Identity is the perimeter. Threat-model first, assume bre
 - **Threat-model first** (STRIDE) — map assets, boundaries & abuse cases *before* controls; each threat gets a control, owner, and timeline
 - **Identity is the perimeter** — conditional, auditable verification on every request, human or workload
 - **Least privilege as a verb** — PIM + JIT over standing roles; managed identities over secrets
-- **Encrypt & segment by default** — data (CIA triad), networks, identities, runtime — sized to data classification
+- **Encrypt & segment by default** — data, networks, identities, runtime — sized to data classification
 
-> Maxim: Security is an engineering practice, not a gate. If you can't see it, you can't contain it.
+<!-- _footer: Maxim: "Security is an engineering practice, not a gate — if you can't see it, you can't contain it." -->
 
 ---
 
@@ -696,7 +696,6 @@ Zero Trust by default. Identity is the perimeter. Threat-model first, assume bre
 
 - MFA + Conditional Access everywhere
 - Entra PIM / JIT — zero standing privileged roles
-- Managed identities > secrets; Key Vault for the rest
 
 **Network & Data**
 
@@ -706,7 +705,6 @@ Zero Trust by default. Identity is the perimeter. Threat-model first, assume bre
 **Detection & Response**
 
 - Defender for Cloud + Sentinel with remediation SLAs
-- Monitor at multiple altitudes (identity, network, app, data)
 
 </div>
 <div>
@@ -814,8 +812,6 @@ Risks if Ignored (by Level):
 **Fast Diagnostic**  
 `Secure Score trend` + open critical vulns + count of permanent privileged roles
 
-> If you can't see it, you can't contain it. Identity is the new perimeter; least privilege is a verb.
-
 </div>
 <div>
 
@@ -830,7 +826,7 @@ Risks if Ignored (by Level):
 - Vulnerability MTTR  
 
 **Quick Win**  
-Expire unused privileged roles, enable PIM + JIT, and onboard top 3 admin paths to Conditional Access this week.
+Expire standing roles; enable PIM + JIT on top 3 admin paths this week.
 
 </div>
 </div>
