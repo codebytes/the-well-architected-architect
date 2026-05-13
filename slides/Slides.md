@@ -1,9 +1,11 @@
 ---
 marp: true
-theme: custom-default
-footer: 'Chris Ayers | chris-ayers.com | Senior SWE, Microsoft'
+theme: custom-techorama
+footer: 'Chris Ayers | chris-ayers.com | Principal SWE, Microsoft'
 paginate: true
 ---
+
+<!-- _paginate: false -->
 
 <div class="columns">
 
@@ -18,14 +20,14 @@ paginate: true
 </div>
 <div>
 
-![](img/architect.png)
+![Architect figure in cape, decorative title artwork](img/architect.png)
 
 </div>
 </div>
 
 ---
 
-![bg left:40%](./img/portrait.png)
+![bg left:40% Portrait of Chris Ayers](./img/portrait.png)
 
 ## Chris Ayers
 
@@ -77,34 +79,52 @@ _Microsoft_
 
 # Architecture Fundamentals - Core Role Focus
 
-Architecture = Intentional decision system.
+Architecture = an intentional decision system, not a diagram.
 
-**You Own:**
+**Your 2026 deliverables** (per [WAF architect-role/fundamentals](https://learn.microsoft.com/en-us/azure/well-architected/architect-role/fundamentals)):
 
-- Map requirements → patterns & platform
-- Bake in ops (observability, support, DR) early
-- Surface & record trade-offs fast
-- Keep design iterative & reversible first
+- **Business-aligned strategy** → design specification + diagrams
+- **ADR log** for every architecturally significant choice (incl. rejected options)
+- **DR plan + security/compliance affordances** baked in early, not retrofitted
+- **PoCs** that retire your riskiest assumptions before code lands
 
 **Superpower:** Multi-perspective experience (build → run → secure → recover).
 
-> Ongoing decisions, not a static diagram.
+> Ongoing decisions, not a static diagram. Reversible first; one-way doors named.
 
 ---
 
 # Architecture Fundamentals - Decision Framework
 
-5 Steps (loop): Identify → Analyze → Decide → Implement → Learn.
+**Architecture = an intentional decision system, not a diagram.**
+
+5-step loop: Identify → Analyze → Decide → Implement → Learn.
 
 ## Keys
 
-- Track decisions in backlog early
-- Classify reversible vs one-way doors
-- Capture rationale & alternatives (ADR)
-- Link ADR → work items
-- Update after incidents / KPIs
+- Surface decisions **in the backlog**, before code commits
+- Classify **one-way doors** (hard to reverse) vs **two-way doors** (easy to undo)
+- Capture rationale, alternatives & trade-offs in an **ADR**
+- Re-open after incidents, drift, or KPI shifts
 
-> Bias to reversible choices under uncertainty.
+<!-- _footer: "Under uncertainty: prefer reversible doors and small bets you can instrument." -->
+
+<!-- Pair with the WAF "Align technical strategy with business requirements" 5-step process on the next slide. The decision framework is HOW; business alignment is WHY. -->
+
+
+---
+
+# Architecture Fundamentals - Business Alignment
+
+**5-step discovery process** — turn business intent into testable technical requirements.
+
+1. **Listen** — capture stakeholder requests *and* the assumptions baked in
+2. **Probe** — keep asking "why?" until the real motivation surfaces
+3. **Clarify** — translate motivations into per-flow, measurable requirements
+4. **Evaluate** — test feasibility, constraints & cross-pillar trade-offs
+5. **Recommend** — propose options w/ rationale; validate with PoCs + KPIs (ADR-ready)
+
+<!-- _footer: "A workload (WAF 2026) = app code + data + AI models + supporting infra. Re-run the loop on every major pivot." -->
 
 ---
 
@@ -115,23 +135,24 @@ Architecture = Intentional decision system.
 
 ## Patterns
 
-- Use proven patterns (circuit breaker, cache-aside, bulkhead, valet key)
-- Prefer simplicity over bespoke cleverness
+- Lean on proven patterns: circuit breaker, cache-aside, bulkhead, valet key, claim-check
+- Use 2026 workload patterns where they fit: **HPC architecture pattern**, AI inference/RAG, event-driven
+- Prefer boring over bespoke
 
 </div>
 <div>
 
 ## Forward Scan
 
-- Scale & data growth thresholds
-- Compliance / residency horizon
+- Scale / data growth thresholds
+- Compliance & residency horizon
 - Deprecations & preview risk
-- Evolution seams pre-planned
+- AI model lifecycle (retraining, drift)
 
 </div>
 </div>
 
-> Instrument to see approaching cliffs early.
+<!-- _footer: "Instrument the seams so you see the cliff while you still have runway." -->
 
 ---
 
@@ -168,15 +189,18 @@ Architecture = Intentional decision system.
 
 ## Toolkit
 
-- Checklists & maturity baseline
+- Checklists & maturity baseline (per pillar)
 - ADR catalog + pattern library
-- Fitness reports (drift & KPI deltas)
+- Fitness reports (drift, KPI deltas, error budget burn)
 
 ## Loop
 
 Assess → Prioritize → Implement → Validate → Instrument → Reassess
 
-Outcome: Intentional, current architecture.
+<!-- _footer: "Outcome: an intentional, current architecture — not a static diagram archived in 2024." -->
+
+<!-- Bridge into WAF section: the framework operationalises this loop across five pillars. -->
+
 
 ---
 
@@ -190,7 +214,7 @@ Outcome: Intentional, current architecture.
 ```markdown
 # ADR-001: Multi-Region Strategy
 Status: Accepted
-Date: 2025-01-15
+Date: 2026-05-13
 
 ## Context
 Need 99.99% availability for 
@@ -306,29 +330,26 @@ Post-implementation reviews
 
 ## 📊 **Observable by Default**
 
-### Every service includes
-
-- Structured logging
-- Distributed tracing
-- Custom metrics
-- Health endpoints
-- SLI/SLO dashboards
+1. **Instrument** - OpenTelemetry, structured logs, correlation IDs
+2. **Collect** - unified pipelines, polyglot stores, tiered retention
+3. **Analyze** - hot / warm / cold paths tied to health & KPIs
+4. **Visualize** - SLI/SLO dashboards, health models, alerting
 
 </div>
 <div>
 
 ## 🔧 **Support-Friendly**
 
-- Self-healing mechanisms
-- Graceful degradation
-- Clear error messages
-- Runbook automation
-- ChatOps integration
+- Self-healing (incl. DLQ for poison messages)
+- Graceful degradation + clear error contracts
+- Runbook automation + ChatOps
 
 </div>
 </div>
 
-**Success Metric:** Time to resolve incidents ↓ 75% with proper observability
+**Success Metric:** MTTR ↓ ~75% when observability wired in from day one, not retrofitted.
+
+<!-- _footer: "OpEx (next) runs this loop — this slide makes sure the loop exists." -->
 
 ---
 
@@ -425,7 +446,21 @@ Post-implementation reviews
 
 # Microsoft Azure Well-Architected Framework
 
-![bg right:60% fit](img/waf.png)
+![bg right:60% fit Five-pillar diagram of the Azure Well-Architected Framework](img/waf.png)
+
+---
+
+# Business Impact of the WAF
+
+Outcomes from organizations that adopted the framework:
+
+- **304% ROI** within 3 years (Forrester TEI study)
+- **40% reduction** in downtime — Global Retailer
+- **25% cost savings** — Financial Services
+- **75% faster** server updates — Manufacturing
+- **93/100** security score — Profisee
+
+<!-- _footer: "Source: Forrester Total Economic Impact™ of Azure WAF (Microsoft-commissioned) / Microsoft WAF customer case studies" -->
 
 ---
 
@@ -435,114 +470,91 @@ The Azure Well-Architected Framework drives real world business outcomes by guid
 
 - **Enhance Resilience:** Higher availability and faster recovery  
 - **Improve Security:** Proactive protection of critical data  
-- **Optimize Costs:** Streamlined resource usage  
-- **Accelerate Innovation:** Faster feature deployment  
-- **Boost Operational Excellence:** Robust monitoring and automation
-
----
-
-# Business Impact: Real Numbers
-
-## Proven ROI & Outcomes
-
-- **304% ROI** within 3 years (Forrester Study)
-- **40% reduction** in downtime (Global Retailer)
-- **25% cost savings** (Financial Services)
-- **75% faster** server updates (Manufacturing)
-- **93/100** security score (Profisee)
-
-<!-- Removed missing image: img/roi-chart.png (not found). Consider adding a local chart image or keep text KPIs only. -->
-
----
-
-# Framework Benefits
-
-- Resilient, available, and recoverable workloads  
-- Strong security and risk management  
-- Optimized costs with high ROI  
-- Support for agile development and operations  
-- Consistent performance and scalability
+- **Optimize Costs:** Streamlined resource usage with high ROI  
+- **Accelerate Innovation:** Faster feature deployment and agile operations  
+- **Boost Operational Excellence:** Robust monitoring and automation  
+- **Optimize Performance:** Consistent scalability and right-sized workloads
 
 ---
 
 # Azure Well-Architected Framework Overview
 
-<style scoped>
-table { display: table; }
-tr { display: table-row; }
-td, th { display: table-cell; }
-table {
-  width: 100%;
-}
-</style>
+| Pillar | Core Goal | Strike a balance with |
+|--------|-----------|------------------------|
+| Reliability | Stay available & recover fast | Cost (redundancy spend), Security (surface area) |
+| Security | Protect identities, data & workloads | Performance (inspection cost), OpEx (control friction) |
+| Cost Optimization | Maximize business value per dollar | Reliability (DR depth), Performance (headroom) |
+| Operational Excellence | Efficient operations & rapid improvement | Security (control vs velocity), Cost (tooling spend) |
+| Performance Efficiency | Right-size & scale on demand | Cost (over-provision), Reliability (scale during incident) |
 
-| Pillar | Core Goal |
-|--------|-----------|
-| Reliability | Stay available & recover fast |
-| Security | Protect identities, data & workloads |
-| Cost Optimization | Maximize business value per dollar |
-| Operational Excellence | Efficient operations & rapid improvement |
-| Performance Efficiency | Right-size & scale on demand |
-
-> Treat the framework as an ongoing fitness regimen-not a one-time audit.
+> Ongoing fitness regimen, not a one-time audit. Each pillar has a `/tradeoffs` page on learn.microsoft.com.
 
 ---
 
 # Reliability Pillar
 
-> "Will it stay up & recover?"
+<!-- _class: lead -->
 
-Focus on sustained availability, graceful degradation, and validated recovery.
+> "Will it stay up & recover — for the flows that actually matter?"
+
+**Resilient** (withstand faults) + **Recoverable** (restore inside RTO/RPO) + **Available** (promised window, promised quality) — engineered into code, infrastructure, and operations. Target the critical flows, not a blanket "always up."
 
 ---
 
 # Reliability - Principles
 
-Reliability = keep user promise under failure.
+Reliability = keep the user promise under failure. 
+Be **resilient**, **recoverable**, **available** — across code, infra, and ops.
 
-- Explicit SLI/RTO/RPO & UX expectations
-- Design for graceful degradation (resilience)
-- Fast detect + recover (observability + runbooks)
-- Minimize complexity in critical paths
+- Set targets **per critical flow**, not a blanket "always up"
+- Rate user/system flows; run FMA before any redundancy spend
+- SLI/SLO + RTO/RPO per flow — negotiated with the business
+- Design for graceful degradation; keep critical paths boring and simple
+- Distinguish **failures** (need intervention) from **errors** (expected ops)
+- Treat **read and write failures separately** — different blast radius, different fix
 
 > Maxim: Resilience is engineered, not discovered after the fact.
 
 ---
 
-# Reliability - Practices
+# Reliability - Practices (Engineering)
 
-- Multi-region for Tier 0 + health probes
-- Quarterly chaos experiments
-- Synthetic user journeys + health model
-- Tiered backups + timed restore drills
-- Automated failover validation
+Failure mode first — design the failure path before the happy path.
 
-Emerging:
-
-- Advisor Score driven next action
-- Shift to automated chaos
+- Right-sized redundancy: AZs default; multi-region only where Tier-0 RTO/RPO demands it
+- Self-healing via **DLQs** (poison messages) + **checkpoints** (long-running transactions) + **PeekLock + duplicate detection** (at-least-once idempotency)
+- Handle **read vs write failures** separately — Blob primary→secondary read; graceful degrade when both fail
+- Client-side transient-fault handling via SDK retries; check `IsTransient` before retrying
+- Isolate **connection pools** so one hot path can't starve another (cascading-failure guard)
+- Chaos / fault injection on critical flows — validate graceful degradation, not just uptime
 
 ---
 
-<style scoped>
-table { display: table; }
-tr { display: table-row; }
-td, th { display: table-cell; }
-table {
-  width: 100%;
-}
-</style>
+# Reliability - Practices (Operations)
+
+If you haven't run the runbook, you don't have a runbook.
+
+- Synthetic user journeys + health probes feeding a flow-level health model
+- Tiered backups + **timed** restore drills to an isolated environment (untested = no backup)
+- Runbooks executed end-to-end quarterly; **named DR activation criteria** (what counts as a disaster — not "looks bad")
+- Automated failover validation in CI; keep failover test green as a gate
+- Advisor Score → next concrete action on the reliability backlog
+- Scheduled, automated chaos + AI-assisted anomaly detection feeding self-heal loops
+
+---
 
 # Reliability - Key Metrics
 
 | Metric | Target | Lever |
 |--------|--------|-------|
-| Request Success Rate | ≥ 99.9% (align to SLO) | Progressive delivery + health probes + fast rollback |
-| Error Budget Burn | < 20% cycle | SLO review + hardening |
-| MTTR | ↓ trend | Auto diagnostics + rollback |
-| Restore Drill Success | ≥ 99% | Timed restore exercises |
+| Critical-flow availability | Meets per-flow SLO | Flow-level health model + progressive delivery |
+| Request success rate | ≥ 99.9% (or tier-specific) | Health probes + fast rollback |
+| Error budget burn | < 20% / cycle | SLO review; harden before adding features |
+| MTTR | ↓ trend | Auto diagnostics + automated rollback |
+| Restore drill success | ≥ 99% (timed, to isolated env) | Quarterly restore exercise on real data |
+| Chaos coverage | All Tier-0 flows hit / quarter | Scheduled fault injection on prod-like envs |
 
-Levers: failover tests, chaos, simplification.
+> Untested = unproven. A backup you've never restored, a failover you've never triggered, a runbook you've never run — those are liabilities, not assets.
 
 ---
 
@@ -550,90 +562,140 @@ Levers: failover tests, chaos, simplification.
 
 ![Resilient architecture illustration showing redundant regional deployment w:1000px](./img/resilient.png)
 
+Health-routed traffic → AZ-redundant active region → paired-region warm standby → geo-replicated data → DLQs for poison messages. Each layer maps to a tested failure mode, not a hypothetical one.
+
 ---
 
 # Reliability - Maturity Progression
 
-| Level | Current | Next Shift | Accelerator |
-|-------|---------|-----------|------------|
-| 1 Ad Hoc | Manual restarts; unknown backup validity | Define & test RTO/RPO | Scope + first timed restore |
-| 2 Baseline | Documented failover path | Probes + scheduled restore drills | Drill cadence |
-| 3 Structured | Runbooks + starter chaos | SLO + error budget govern releases | Chaos on critical flows |
-| 4 Proactive | Auto failover + health model | Timed restore KPIs + broaden chaos | CI failover test |
-| 5 Adaptive | Continuous resilience engineering | Predictive scale + self-heal loops | Predictive scaling + self-heal scripts |
+| Level | You're Here When... | Next Shift | Accelerator |
+|-------|---------------------|-----------|------------|
+| 1 Ad Hoc | Manual restarts; backup validity unknown; no defined RTO/RPO | Define & test RTO/RPO for top flow | Scope + first timed restore |
+| 2 Baseline | Documented failover path; ad-hoc probes; DR exercise on a wiki page | Health probes + scheduled restore drills | Quarterly restore-drill cadence |
+| 3 Structured | Runbooks executed end-to-end; SLOs defined; starter chaos on one critical flow | Error budget governs releases; chaos broadens | Chaos on every Tier-0 flow |
+| 4 Proactive | Auto failover + health model; CI failover test green; timed restore KPI tracked monthly | Flow-level dashboards; failure-mode library cross-team | Automated chaos in pipelines |
+| 5 Adaptive | Self-heal loops live; scheduled chaos; AI-assisted anomaly triage | Predictive scaling; novel-failure rehearsal; chaos as a release gate | Continuous resilience engineering as team practice |
 
-> Sequence: remove unknowns → speed detection → widen safe automation.
+<!-- _footer: "Trajectory: remove unknowns → speed detection → widen safe automation." -->
 
 <!-- Risks: L1 False recoverability; L2 Late backup corruption detection; L3 Hidden SPOF; L4 Design vs reality drift; L5 Slow novel failure detection. -->
 
 ---
 
-### Reliability - At a Glance
+# Reliability - At a Glance
+
+<!-- _class: glance -->
 
 <div class="columns">
 <div>
 
 **Core Azure Focus**  
-🧭 Multi-region & AZ design  
-🛡️ Data protection (backup + geo-replication)  
-🩺 Health modeling & synthetic probes  
+🧭 AZ-first; multi-region only for Tier 0  
+🛡️ Backup + geo-replication + **tested** restore  
+🩺 Flow-level health model + synthetic probes  
 
-**Fast Diagnostic**  
-`Last chaos / failover drill outcome` (✅ / ❌)
-
-> Focus first on removing unknowns in recovery path before adding more redundancy.
+**Fast Diagnostic (the Monday question)**  
+`When did you last successfully restore from backup — timed, end-to-end?`
 
 </div>
 <div>
 
 **Typical Early Gap**  
-🚩 Runbooks never fully executed end-to-end
+🚩 Runbooks never executed end-to-end on prod-like data
 
 **Signals to Track**  
 
 - Error budget burn %  
-- RTO / RPO adherence  
-- Successful timed restore drills  
-
-**Quick Win**  
-Run a 30-min tabletop + one automated failover script this week.
+- Critical-flow availability vs SLO  
+- RTO / RPO adherence on the last real drill  
+- Timed restore drill success  
 
 </div>
 </div>
+
+<!-- _footer: "Quick Win: 30-min tabletop on top flow → name one unknown → one restore script by Friday. | Up next: Security." -->
 
 ---
 
 # Security Pillar
 
-> "Can it be breached or abused?"
+<!-- _class: lead -->
 
-Emphasizes least privilege, segmentation, and continuous threat detection.
+> "Can it be breached — and would we see it?"
+
+Zero Trust by default. Identity is the perimeter. Threat-model first, assume breach, design for rapid detection and containment.
 
 ---
 
 # Security - Principles
 
-- Threat model + shared responsibility upfront
-- Least privilege + segmentation + encryption
-- Continuous assessment & patch / vuln flow
-- Zero Trust verification on every request
+- **Zero Trust by default** — *verify explicitly, least privilege, assume breach* on every flow
+- **Threat-model first** (STRIDE) — map assets, boundaries & abuse cases *before* controls; each threat gets a control, owner, and timeline
+- **Identity is the perimeter** — conditional, auditable verification on every request, human or workload
+- **Least privilege as a verb** — PIM + JIT over standing roles; managed identities over secrets
+- **Encrypt & segment by default** — data, networks, identities, runtime — sized to data classification
 
-> Maxim: Security is an engineering practice, not a gate.
+<!-- _footer: Maxim: "Security is an engineering practice, not a gate — if you can't see it, you can't contain it." -->
 
 ---
 
 # Security - Practices & Patterns
 
-- Enforce Zero Trust (MFA, CA, JIT)
-- Secrets in Key Vault only
-- Network segmentation + WAF
-- Defender for Cloud remediation SLAs
-- Central security logging
+<div class="columns">
+<div>
 
-Emerging:
+**Identity & Access**
 
-- AI workload safeguards (watermarking)
-- Automated threat triage (Copilot)
+- MFA + Conditional Access everywhere
+- Entra PIM / JIT — zero standing privileged roles
+
+**Network & Data**
+
+- Segmentation, private endpoints, WAF + DDoS
+- Encrypt in transit & at rest; CMK for regulated data
+
+**Detection & Response**
+
+- Defender for Cloud + Sentinel; defined remediation SLAs
+
+</div>
+<div>
+
+**Exercises**
+
+- Tabletop simulations + **red-/purple-team** drills
+- Threat-model reviews at every architecture change
+
+</div>
+</div>
+
+---
+
+# Security - Secure Development Lifecycle
+
+<!-- _class: dense -->
+
+<div class="columns">
+<div>
+
+**Secure Dev Lifecycle (SE:02)**
+
+- Isolated workspaces: **Dev Box / Codespaces**
+- **Golden images** + asset/CVE catalog for prod
+- IDE security extensions + credential managers
+- SAST + DAST + dependency / supply-chain scans
+- Default-deny in code; Microsoft-hosted build agents
+
+</div>
+<div>
+
+**Emerging**
+
+- AI workload safeguards: prompt-injection controls, content filters, model-supply-chain integrity
+- **Agentic SOC**: Copilot + Sentinel for automated triage & containment
+
+</div>
+</div>
 
 ---
 
@@ -641,116 +703,122 @@ Emerging:
 
 | Metric | Target | Lever |
 |--------|--------|-------|
-| Secure Score | > 80% | Prioritized remediation |
+| Secure Score | > 80% | Prioritized remediation backlog |
 | MFA Coverage | 100% | Conditional Access policies |
-| Vuln MTTR | < 14 days | Patch automation |
+| Standing privileged roles | ~0 | PIM + JIT elevation |
+| Mean Time to Detect (MTTD) | < 1 hr | Sentinel analytics + tuned alerts |
+| Vuln MTTR (critical) | < 14 days | Patch automation, IaC redeploys |
 
-Levers: least privilege, segmentation, scanning.
+> Detection-first: dwell time & MTTD are the truth-tellers — Secure Score is hygiene.
 
 ---
 
 # Security - Architecture Example
 
-1. Front Door + WAF + DDoS
-2. App Gateway / mTLS ingress
-3. Segmented app tier (private endpoints)
-4. Key Vault + encrypted data stores
-5. Central SIEM + automated triage
+1. **Edge**: Front Door + WAF + DDoS Protection
+2. **Ingress**: App Gateway + mTLS; Entra ID + Conditional Access on every flow
+3. **Compute**: Segmented app tier, private endpoints, managed identities (no secrets in code)
+4. **Data**: Key Vault + CMK encryption; classified & labeled at rest
+5. **Detect**: Defender for Cloud → Sentinel SIEM + SOAR playbooks for rapid containment
 
-> Blueprint Goal: Rapid containment & traceability.
+> Blueprint goal: identity-bound, signal-driven, contained-by-design.
 
 ---
 
 # Security Maturity (Progression + Accelerators)
 
-| Level | Focus (Condensed) | Key Shift | Accelerator |
-|-------|-------------------|-----------|------------|
-| 1 Core | Hygiene (MFA, patch, secrets) | Enforce MFA & baseline hardening | MFA + secret externalization |
-| 2 Expanded | Segmentation & posture | Secure Score backlog | Segmentation + Secure Score |
-| 3 Threat-Informed | Threat modeling + IR | Central logging & triage | Threat modeling + IR runbooks |
-| 4 Adaptive | Automated response & risk-based access | SOAR workflow automation | SOAR + risk-based policies |
-| 5 Advanced | Continuous simulation & ML detection | Zero Trust + least privilege by design | Continuous simulation (red/purple) |
+| Level | Posture | Signals You See | Accelerator |
+|-------|---------|-----------------|-------------|
+| 1 Core | Static hygiene | MFA on, secrets externalized, baseline patching | Enforce MFA + Key Vault migration |
+| 2 Expanded | Posture-managed | Secure Score backlog burned down; segmentation in place | Defender for Cloud + private endpoints |
+| 3 Threat-Informed | Detection-aware | STRIDE models per workload; central SIEM; IR runbooks rehearsed | Threat models + Sentinel analytics |
+| 4 Adaptive | Signal-driven | SOAR auto-contains common patterns; risk-based CA; PIM enforced | SOAR playbooks + risk-based policies |
+| 5 Advanced | Continuously validated | Red/purple drills on cadence; AI/agent-assisted containment; zero standing privilege | Continuous purple-team + agentic SOC |
 
-> Trajectory: static controls → signal-driven prevention & rapid containment. 
+<!-- _footer: "Trajectory: static controls → signal-driven prevention → AI-assisted autonomous containment. Detection capability — not Secure Score — is the leading indicator." -->
 
 <!-- 
 Outcome: lower dwell time & blast radius with reduced analyst toil.
 Risks if Ignored (by Level):
-1: Credential stuffing / leaked keys
-2: Flat trust zones expand blast radius
-3: Slow breach containment
-4: Analyst fatigue / alert backlog
-5: Control regressions undetected
+1: Credential stuffing / leaked keys / flat trust zones
+2: Posture drift; Secure Score backlog rots
+3: Slow breach containment, no IR muscle memory
+4: Analyst fatigue / alert backlog / inconsistent response
+5: Control regressions undetected; over-trust in aging controls
 -->
 
 ---
 
-### Security - At a Glance
+# Security - At a Glance
+
+<!-- _class: glance -->
 
 <div class="columns">
 <div>
 
 **Core Azure Focus**  
-🆔 Strong identity (MFA / PIM)  
-🔐 Secrets in Key Vault only  
-🧱 Segmentation + threat detection (Defender / Sentinel)
+🆔 Identity-as-perimeter (Entra + PIM/JIT)  
+🔐 Secrets in Key Vault; managed identities elsewhere  
+🧱 Segmentation + Defender for Cloud + Sentinel
 
 **Fast Diagnostic**  
-`Secure Score trend` + count of open critical vulns
-
-> Treat identity as the primary security boundary; reduce standing privilege relentlessly.
+`Secure Score trend` + open critical vulns + count of permanent privileged roles
 
 </div>
 <div>
 
 **Typical Early Gap**  
-🚩 Privileged identity hygiene (stale Global Admins)
+🚩 Standing Global Admins + secrets in pipelines
 
 **Signals to Track**  
 
-- MFA coverage %  
-- Key Vault secret rot cadence  
+- MFA coverage % + % managed identities  
+- MTTD / dwell time  
+- Key Vault rotation cadence  
 - Vulnerability MTTR  
 
-**Quick Win**  
-Expire unused privileged roles & enable PIM + just-in-time elevation.
 
 </div>
 </div>
+
+<!-- _footer: "Quick Win: Expire standing roles; enable PIM + JIT on top 3 admin paths this week. | Security spend IS a cost lever — Cost Optimization." -->
 
 ---
 
 # Cost Optimization Pillar
 
-> "Are we creating value per dollar?"
+<!-- _class: lead -->
 
-Drives financial accountability, efficiency, and spend-to-value alignment.
+> "What is the unit cost — and is it trending down?"
+
+Drives financial accountability, elasticity, and spend-to-value alignment. Security spend, redundancy spend, AI spend — every pillar lands on the bill. Unit economics ties dollars back to the business outcomes set in Step 1 of Business Alignment; tracked per transaction, per user, per request — never just line items.
 
 ---
 
 # Cost Optimization - Principles
 
-- Budget guardrails + ownership tagging
-- Engineer elasticity & eliminate waste
-- Tie spend to business KPIs & unit cost
-- Document cost vs reliability/perf trade-offs
+- Tagging-first ownership; budget guardrails follow
+- Engineer elasticity; idle spend is a measurable target
+- Tie every dollar to a business KPI — unit cost is the headline
+- Treat anomalies as signals, not surprises
+- Document cost vs reliability/perf trade-offs — they will be re-litigated
 
-> Maxim: Unmeasured cost is uncontrolled cost.
+> Maxim: Unmeasured cost is uncontrolled cost. Without ownership tagging, optimization is theatre.
 
 ---
 
 # Cost Optimization - Practices & Governance
 
-- Enforced tagging & budgets
-- Autoscale + off-hour shutdown
-- Rightsize & commitment coverage
-- Spot / tiered storage
-- Anomaly detection & review
+- Policy-enforced tags (env, owner, costCenter) + budget alerts at 50 / 80 / 100% (CO:04)
+- Autoscale on explicit triggers (CPU, queue depth, predictive); scheduled nonprod shutdown (CO:12)
+- Rightsize quarterly; commitment portfolio = Reservations + Savings Plans (CO:05)
+- Spot for batch & interruptible; storage lifecycle hot → cool → archive (CO:10)
+- ML-driven anomaly detection → auto-route runbook on threshold breach (CO:03)
 
 Emerging:
 
-- Sustainability KPIs (energy proxy)
-- Caching to reduce expensive ops
+- AI / agent workload cost allocation — high variance, dedicated tags (CO:07)
+- Flow-cost optimization (CO:09) + caching on expensive hot paths
 
 ---
 
@@ -758,37 +826,41 @@ Emerging:
 
 | Metric | Target | Lever |
 |--------|--------|-------|
-| Idle Spend | < 5% | Decommission & schedules |
-| Commitment Coverage | > 70% | Rightsize + purchase planning |
-| Unit Cost | ↓ QoQ | Performance + elasticity |
+| Tag Coverage | > 95% | Azure Policy deny-on-missing tags |
+| Idle Spend | < 5% | Decommission, schedules, rightsizing |
+| Commitment Coverage | > 70% eligible | Reservations + Savings Plans mix |
+| Anomaly MTTR | < 24h | ML detection + runbook routing |
+| Unit Cost ($/txn, $/user) | ↓ QoQ | Performance + elasticity + flow trimming |
+| Forecast Accuracy | ±10% MoM | Cost model + production feedback |
 
-Levers: tagging, scaling, lifecycle policies.
+> The headline is unit cost. Everything else is a lever to move it.
 
 ---
 
 # Cost Optimization - Architecture Example
 
-1. Enforced tagging & budgets
-2. Autoscale + spot for batch
-3. Storage tiering lifecycle
-4. Cache hot read reduction
-5. Cost dashboard & anomaly alerts
+1. Tag policy (deny-on-missing) + budget alerts at 50 / 80 / 100%
+2. Autoscale by leading metric + Spot for batch + scheduled nonprod shutdown
+3. Storage lifecycle (hot → cool → archive); retention tuned to data class
+4. Cache + flow-cost trimming on expensive read paths
+5. Cost Management anomaly insights → auto-route runbook + Teams alert
+6. Unit-cost dashboard ($/txn, $/user) reviewed at monthly FinOps cadence
 
-> Blueprint Goal: Predictable unit economics.
+> Blueprint Goal: Predictable unit economics with anomaly-driven self-correction.
 
 ---
 
 # Cost Optimization Maturity Progression
 
-| Level | Focus (Condensed) | Key Shift | Accelerator |
-|-------|-------------------|-----------|------------|
-| 1 Ownership | Tags + visibility | Assign DRI & shared transparency | Tag policy + cost DRI |
-| 2 Visibility | Cost model + alerts | Formalize reports & baseline drivers | Cost model + budget alerts |
-| 3 Signals | Usage & flow analysis | Guardrails + anomaly triage cadence | Anomaly triage cadence |
-| 4 Prod Insights | Rightsizing & demand shaping | Autoscale tuning + lifecycle policies | Demand shaping + rightsizing loops |
-| 5 Optimize @ Scale | Predictive + unit economics | Forecast accuracy + DR cost optimization | Forecast accuracy + DR cost review |
+| Level | Focus | Concrete Signal You've Arrived | Accelerator |
+|-------|-------|-------------------------------|-------------|
+| 1 Ownership | Tags + DRI assignment | Tag coverage > 80%; every cost center has a named DRI | Azure Policy deny-on-missing tags |
+| 2 Visibility | Cost model + alerts | Budget alerts at 50/80/100% live; monthly variance < ±15% | Cost model + chargeback/showback view |
+| 3 Signals | Anomaly & flow analysis | Anomaly MTTR < 24h; idle spend < 10%; commitment coverage > 50% | ML anomaly detection + runbook routing |
+| 4 Prod Insights | Rightsizing & demand shaping | Idle < 5%; commitment > 70%; autoscale tuned to leading metric | Lifecycle automation + autoscale triggers |
+| 5 Optimize @ Scale | Unit economics + forecast | Unit cost ↓ QoQ; forecast accuracy ±10%; DR cost reviewed against tiered criticality (→ Reliability) | Predictive scaling + AI-assisted cost insights |
 
-> Trajectory: visibility → signals → automation at scale. .
+<!-- _footer: "Trajectory: visibility → signals → automation. Skip a level; the next stalls." -->
 
 <!-- 
 
@@ -804,20 +876,22 @@ Aim for unit economics clarity before advanced forecasting automation.
 
 ---
 
-### Cost Optimization - At a Glance
+# Cost Optimization - At a Glance
+
+<!-- _class: glance -->
 
 <div class="columns">
 <div>
 
 **Core Azure Focus**  
-🏷️ Enforced tagging & ownership  
+🏷️ Policy-enforced tagging & ownership  
 📉 Elasticity & rightsizing loops  
-🗃️ Storage lifecycle + commitment mgmt
+🗃️ Storage lifecycle + commitment portfolio
 
 **Fast Diagnostic**  
-`Idle spend %` + tag coverage heatmap
+`Idle spend %` + tag coverage heatmap + anomaly MTTR
 
-> Cost fitness = visibility → accountability → automation. Optimize after measuring.
+> Cost fitness = ownership → visibility → signals → automation. Optimize after measuring.
 
 </div>
 <div>
@@ -827,49 +901,61 @@ Aim for unit economics clarity before advanced forecasting automation.
 
 **Signals to Track**  
 
-- Idle / unattached resources  
-- Savings Plan / RI coverage %  
-- Unit cost (e.g., $ / txn) trend  
-
-**Quick Win**  
-Implement a tag policy (env, owner, costCenter) + weekly idle resource report.
+- Idle / unattached resources (target < 5%)
+- Unit cost ($/txn, $/user) — must trend down
 
 </div>
 </div>
+
+<!-- _footer: "Optimization without operational discipline reverts — Operational Excellence." -->
 
 ---
 
 # Operational Excellence Pillar
 
-> "Can we change & learn fast?"
+<!-- _class: lead -->
 
-Centers on disciplined delivery, observability, and continual improvement.
+> "Can we change safely - and learn from every change?"
+
+OpEx is the **carrier** for the other four pillars - the practices that turn Reliability, Security, Cost, and Performance gains into changes that actually ship. Disciplined delivery, full-stack observability, and a feedback loop that compounds across releases.
 
 ---
 
 # Operational Excellence - Principles
 
-- Shared ownership (build → run)
-- Instrument first; scale second
-- Progressive, reversible deploys
-- Automate high-frequency toil
+OpEx = the operating system around your workload (OE:01-OE:11 checklist).
 
-> Maxim: Operate to learn; learn to operate better.
+- **Shared ownership** - build it, you run it (OE:01); blameless retros, not blame retros
+- **Instrument first; scale second** (OE:07) - SLOs + error budgets govern release pace
+- **Progressive, reversible deploys** (OE:11) - small batches, health-gated, fast rollback
+- **Standardize the routine; automate the frequent** (OE:02, 05, 10) - IaC, runbooks, policy-as-code
+- **Structured incident response** (OE:08) - defined roles, rehearsed runbooks, rapid recovery
+- **AI is integrated, not bolted on** — threaded across L1–L5
+
+<!-- _footer: "Maxim: Operate to learn; learn to operate better." -->
 
 ---
 
 # Operational Excellence - Practices & Automation
 
-- Gated CI/CD + policy
-- Progressive delivery rings
-- Standard SLO dashboards
-- Automate frequent runbooks
-- Blameless retros → ADR updates
+- Gated CI/CD + **policy-as-code supply chain** (OE:06) - SBOM, signing, scan, immutable artifacts
+- **Progressive delivery** (OE:11): canary / blue-green / deployment stamps, health-gated, with bake time
+- **Test strategy + plan per workload** (OE:09): pyramid (unit → integration → E2E) + chaos + load
+- Test in production *with safeguards* - feature flags, scoped canary, kill switches
+- Unified observability spine (OE:07): instrument → collect → analyze → visualize
+- **Structured incident response** (OE:08) + blameless retros → **ADR feedback**
 
-Emerging:
+---
 
-- Maturity scoring focus
-- AI-assisted event reduction
+# Operational Excellence - AI Integration
+
+AI-integrated (per OpEx maturity model — Feb 2026):
+
+- **Buy**: Copilot for IaC / tests / queries; SRE agents; Sentinel / Defender AI triage
+- **Build**: custom GenAI for KPI suggestions, canary tuning, alert dedup, runbook synthesis
+- Agentic remediation — **behind governance** (PII masking, security trimming, human-in-loop)
+
+> AI is not bolted on at the end — it threads every maturity level, from task assist to predictive ops.
 
 ---
 
@@ -878,36 +964,37 @@ Emerging:
 | Metric | Target | Lever |
 |--------|--------|-------|
 | Deploy Frequency | Daily+ | Small batches + automation |
-| Change Failure Rate | < 15% | Progressive rollout + tests |
-| MTTR | < 1h Sev2 | Runbooks + observability |
+| Lead Time for Change | < 1 day | Trunk-based + gated pipelines |
+| Change Failure Rate | < 15% | Progressive rollout + test pyramid |
+| MTTA / MTTR | < 5 min / < 1h Sev2 | Health model + runbook automation |
 
-Levers: telemetry unification, rollback automation.
+DORA is the operating room. Levers: telemetry unification, AI-assisted triage, rollback drills.
 
 ---
 
 # Operational Excellence - Architecture Example
 
-1. Gated PR → secure build
-2. Canary + progressive rings
-3. Unified telemetry spine
-4. Automated remediation rules
-5. Post-incident ADR updates
+1. Gated PR → secure build (SBOM, scan, signed artifacts)
+2. Canary + health-gated progressive rings (bake time per wave)
+3. Unified telemetry spine - 4-phase pipeline + correlation IDs
+4. AI-assisted alert correlation + automated remediation behind approvals
+5. Blameless retro → ADR + runbook update (feedback closes the loop)
 
-> Blueprint Goal: High velocity, low MTTR.
+> Blueprint Goal: High deploy frequency, low MTTR, learning compounds.
 
 ---
 
 # Operational Excellence - Maturity Progression
 
-| Level | Focus (Condensed) | Key Shift | Accelerator |
-|-------|-------------------|-----------|------------|
-| 1 Foundation | DevOps culture + basic CI | Shared vocab & source control norms | Shared on-call + IaC adoption |
-| 2 Standardize | Roles, IaC, core processes | Off-the-shelf tooling & baseline automation | Standardized pipelines + roles |
-| 3 Release Ready | Env + gated pipelines | Health model + incident workflow | Health model + incident taxonomy |
-| 4 Production Ops | SLO dashboards + progressive delivery | Runbook automation & retros to ADRs | Auto-remediation + retro loop |
-| 5 Adaptable | Continuous modernization | Self-service envs & pervasive automation | Self-service env + friction audits |
+| Level | Focus | Key Shift | AI Integration |
+|-------|-------|-----------|----------------|
+| 1 DevOps Foundation | Shared ownership + basic CI | Source control norms, IaC adoption | **Task assist** - Copilot scaffolds IaC, docs, unit tests (buy) |
+| 2 Process Standardization | Roles, IaC, baseline pipelines | Standardized tooling & on-call | **Recommendations** - AI code review, test generation, KPI suggestions (buy) |
+| 3 Release Readiness | Gated pipelines + health model | Incident taxonomy + SLOs govern releases | **Artifact generation** - risk scoring at gates, runbook & test synthesis |
+| 4 Change Management | SLO dashboards + progressive delivery | Runbook automation, retros → ADRs | **Policy validation** - canary tuning, alert dedup, auto-remediation (build) |
+| 5 Future Adaptability | Continuous modernization, self-service envs | Friction audits, pervasive automation | **Optimization actions** - multi-agent SRE, predictive scale, anomaly detection (build) |
 
-> Trajectory: culture → standardization → automation → modernization.
+<!-- _footer: "Trajectory: culture → standardization → automation → modernization. AI threads L1–L5 — buy early, build where ROI justifies it." -->
 
 <!-- Operational Excellence Risks if Ignored (by Level):
 1: Tribal ops knowledge silos
@@ -916,59 +1003,63 @@ Levers: telemetry unification, rollback automation.
 4: Repeating incidents / slow MTTR gains
 5: Innovation slowdown / shadow ops
 Reliability & velocity converge when feedback loops are automated and trusted.
+Level names align with WAF OpEx maturity model (Feb 2026 update).
 -->
 
 ---
 
-### Operational Excellence - At a Glance
+# Operational Excellence - At a Glance
+
+<!-- _class: glance -->
 
 <div class="columns">
 <div>
 
 **Core Azure Focus**  
 🚀 Gated CI/CD + progressive delivery  
-📊 Unified observability spine  
-🛠️ Automated runbooks & incident workflow
+📊 Unified observability (4-phase)  
+🛠️ Runbook automation + AI-assisted triage
 
 **Fast Diagnostic**  
-`DORA metrics snapshot` (Deploy Freq, Lead Time, CFR, MTTR)
-
-> Velocity safely increases when feedback loops are fast, visible, and trusted.
+`DORA snapshot` - Deploy Freq, Lead Time, CFR, MTTR/MTTA
 
 </div>
 <div>
 
 **Typical Early Gap**  
-🚩 Telemetry exists but no actionable SLO dashboards
+🚩 Telemetry exists but no actionable SLOs or error budget
 
 **Signals to Track**  
 
 - Change failure rate (%)  
-- MTTR trend  
+- MTTR / MTTA trend  
 - Auto-remediation success count  
+- Retro → ADR cycle time
 
-**Quick Win**  
-Define one SLO + error budget and wire alert to a Slack/Teams channel.
 
 </div>
 </div>
+
+<!-- _footer: "OpEx instruments; Performance measures the result — Performance Efficiency." -->
 
 ---
 
 # Performance Efficiency Pillar
 
-> "Will it meet SLOs under scale?"
+<!-- _class: lead -->
 
-Ensures responsive scaling, optimized hot paths, and sustained tail latency control.
+> "Will it hold its SLOs under load — at P99, not on average?"
+
+OpEx instrumented the system. Performance proves it under load — at the tail, not on the average. Verify scale promises continuously.
 
 ---
 
 # Performance Efficiency - Principles
 
-- Business SLOs (latency / throughput)
-- Just-in-time elastic scaling
-- Partition & cache for hot paths
-- Measure & tune based on profiling
+- Negotiate business SLOs (latency / throughput) per critical flow (PE:01, PE:09)
+- Just-in-time elastic scaling — capacity follows demand at runtime, with planning ahead of known peaks (PE:02)
+- Partition & cache the hot path; profile the long tail (PE:05, PE:08)
+- Baseline → measure → tune on evidence, never on guesswork (PE:04)
 
 > Maxim: Performance is a promise you must continuously verify.
 
@@ -976,16 +1067,23 @@ Ensures responsive scaling, optimized hot paths, and sustained tail latency cont
 
 # Performance Efficiency - Practices & Patterns
 
-- Load + capacity tests pre-peak
-- Autoscale on meaningful metrics
-- CDN + Redis hot path caching
-- Partition / shard early
-- Profile tail latency (P95/P99)
+- Production-like load & capacity tests pre-peak (PE:06)
+- Autoscale on **meaningful** signals (queue depth, RPS, latency — not CPU alone)
+- Layered caching: Front Door / CDN at the edge → Redis Enterprise on the hot path
+- Partition / shard early; tune indexes for the real query; align scale units to the real bottleneck (PE:05, PE:08)
+- Profile tail latency (P95 / P99) on critical flows (PE:09)
+- Perf gates in CI/CD — block regressions before prod (PE:06, PE:12)
 
-Emerging:
+---
 
-- Adaptive concurrency controls
-- Predictive autoscale policies
+# Performance Efficiency - Emerging Practices
+
+- **Predictive autoscale** — ML-forecasted demand, provision before the spike, guardrail min/max
+- **Adaptive concurrency** — KEDA, Functions / App Service Premium throttle on real pressure
+- **AI workload perf** — token/sec SLOs, PTU sizing, prompt-cache reuse, prompt-length budgets
+- **HPC workloads** — coupled compute, low-latency interconnect, placement-aware scale units
+
+> Establish a repeatable baseline before reaching for predictive or adaptive controls.
 
 ---
 
@@ -993,37 +1091,39 @@ Emerging:
 
 | Metric | Target | Lever |
 |--------|--------|-------|
-| P95 Latency | SLO met | Caching + profiling |
-| Cache Hit Ratio | > 85% | Key design + eviction |
-| Autoscale Reaction | < 5 min | Threshold tuning |
+| P95 / P99 Latency (critical flow) | SLO met; P99 ≤ 3× P50 | Profiling + caching + async |
+| Cache Hit Ratio (hot path) | > 85% | Key design + TTL + eviction |
+| Autoscale Reaction | < 5 min reactive · pre-spike (predictive) | Signal-driven rules |
+| Tokens / sec (AI flows) | Per-deployment SLO met | PTU sizing + prompt budget |
+| Perf-Gate Pass Rate | 100% on critical flows | CI/CD load + regression checks |
 
-Levers: async patterns, caching, partitioning.
+Levers: async patterns, layered caching, partitioning, predictive scale, adaptive concurrency.
 
 ---
 
 # Performance Efficiency - Architecture Example
 
-1. CDN + Front Door cache
-2. Stateless autoscaling API
-3. Async queue offload
-4. Redis + partitioned data
-5. Predictive scale rules
+1. Front Door edge cache + object chunking for large payloads
+2. Stateless autoscaling API on signal-driven rules (queue / latency)
+3. Async queue offload with adaptive concurrency on workers
+4. Redis Enterprise hot path + partitioned data stores
+5. Predictive autoscale + perf gates in CI/CD
 
-> Blueprint Goal: Linear scale within latency SLO.
+> Blueprint Goal: Linear scale within the P95 SLO; no surprises at P99.
 
 ---
 
 # Performance Efficiency Maturity Progression
 
-| Level | Focus (Condensed) | Key Shift | Accelerator |
-|-------|-------------------|-----------|------------|
-| 1 Targets | Initial SLOs & component fit | Capture perf expectations early | SLO draft + rough capacity estimate |
-| 2 Baseline Metrics | Instrument & capacity plan | Critical flow metrics & baselines | Perf baselines + hot path mapping |
-| 3 Signal Driven | Real user + synthetic insights | Hot path tuning + data-driven refactors | Profiling + targeted caching/sharding |
-| 4 Prod Optimization | Isolation & advanced data mgmt | Perf gates in delivery pipeline | Perf gates in CI/CD + isolation |
-| 5 Continuous Tuning | Experimentation & automation | Hypothesis-driven improvements | Hypothesis experiments + predictive scale |
+| Level | Focus | Concrete Signal | Accelerator |
+|-------|-------|-----------------|-------------|
+| 1 Targets | Negotiated SLOs per critical flow | P95 SLO drafted + rough capacity model exists | SLO worksheet + capacity estimate |
+| 2 Baseline Metrics | Instrumented & repeatable measurement | P50 / P95 / P99 baselines + hot-path map captured | Load-test rig + profiling spans |
+| 3 Signal Driven | Real user + synthetic + autoscale on real signals | Scale fires on queue / latency, not CPU alone | RUM + custom autoscale metrics |
+| 4 Gated Optimization | Perf gates block regressions; data tier tuned | CI/CD perf gate green; PACELC choices documented | Perf gates + indexing / partitioning review |
+| 5 Continuous Tuning | Hypothesis-driven, predictive & adaptive | Predictive autoscale + adaptive concurrency in prod | Experiments + model-drift watch |
 
-> Trajectory: establish targets → measure → signal-driven → gated optimization.
+<!-- _footer: "Trajectory: targets → baseline → signal-driven → gated optimization → predictive & adaptive" -->
 
 <!-- 
 Outcome: Sustained latency control & scalable performance via automated, hypothesis-driven tuning loops.
@@ -1037,42 +1137,49 @@ Performance Efficiency Risks if Ignored (by Level):
 
 ---
 
-### Performance Efficiency - At a Glance
+# Performance Efficiency - At a Glance
+
+<!-- _class: glance -->
 
 <div class="columns">
 <div>
 
 **Core Azure Focus**  
-⚖️ Autoscale on meaningful metrics  
-🧠 Hot path caching & partitioning  
-🧪 Profiling + tail latency management
+⚖️ Signal-driven autoscale (predictive once proven)  
+🧠 Layered caching (Front Door → Redis) + partitioning  
+🧪 Tail-latency profiling on critical flows
 
 **Fast Diagnostic**  
-`P95 latency vs SLO delta` (gap & trend)
-
-> Performance improvements start with a repeatable baseline—instrument before tuning.
+`P95 / P99 vs SLO delta` (gap, trend, regression count)
 
 </div>
 <div>
 
 **Typical Early Gap**  
-🚩 No sustained load / capacity test baseline
+🚩 No repeatable load / capacity baseline; autoscale on CPU alone
 
 **Signals to Track**  
 
-- P95 / P99 latency trend  
-- Cache hit ratio (%)  
-- Autoscale reaction time  
+- P95 / P99 latency per critical flow  
+- Cache hit ratio (edge + Redis)  
+- Autoscale reaction time & accuracy  
+- Tokens / sec for AI flows (where applicable)
 
-**Quick Win**  
-Run a 1-hour load test; record baseline P95 + identify top 1 slow span.
 
 </div>
 </div>
+
+<!-- _footer: "Quick Win: run a 1-hr load test → record P95/P99 baseline + name top slow span. | Performance is a promise you continuously verify — Trade-Offs next." -->
 
 ---
 
 # Trade-Offs
+
+<!-- _class: lead -->
+
+> Every pillar pulls. Architecture is choosing **which way to lean**, on purpose.
+
+The next slides surface the shared levers, the recurring tensions, and four scenarios where the "right" answer depends on context, not the framework.
 
 ---
 
@@ -1086,7 +1193,7 @@ Run a 1-hour load test; record baseline P95 + identify top 1 slow span.
 | Autoscale + lightweight architecture | Performance, Cost, Reliability | Elastic capacity without chronic overprovisioning |
 | Policy & automation guardrails | Security, Cost, Operational Excellence | Consistent compliance & reduced manual toil |
 
-> One leveraged investment should advance at least two pillars—use this list to frame improvement proposals.
+<!-- _footer: "One leveraged investment should advance at least two pillars — use this list to frame improvement proposals." -->
 
 <!-- Previous bullet list version retained for reference:
 Global edge + health routing; Strong identity + least privilege; Observability spine (logs, metrics, traces); Autoscale + lightweight architecture; Policy & automation as guardrails. Guiding Principle: One design decision, multi-pillar benefit. -->
@@ -1100,19 +1207,21 @@ Global edge + health routing; Strong identity + least privilege; Observability s
 
 # Trade-Offs Overview
 
-| Tension Pair | Competing Forces | Friction Signal | Primary Mitigation Lens |
-|--------------|------------------|-----------------|-------------------------|
+| Tension Pair | Competing Forces | Friction Signal | First-Move Lens |
+|--------------|------------------|-----------------|-----------------|
 | Performance vs Security | Latency vs inspection depth | Rising auth / inspection latency | Edge offload + scoped deep inspection |
 | Reliability vs Cost | Redundancy vs spend efficiency | Escalating standby cost | Tiered criticality + right-sized DR |
 | Velocity vs Stability | Change frequency vs failure risk | Spike in change failure rate | Progressive delivery + automated rollback |
 | Cost vs Performance | Budget guardrails vs headroom | Reactive scaling / throttling | Autoscale + load test baselines |
 | Security vs Operability | Tight control vs engineer throughput | Privilege escalation toil | JIT least privilege + workflow automation |
 
-> Guiding Principle: Surface → Document → Measure → Recalibrate. 
+<!-- _footer: "Loop: Surface → ADR → Measure → Recalibrate. Hidden trade-offs become accidental architecture." -->
 
 ---
 
 # <!-- fit --> Unstated trade-offs become accidental architecture
+
+<!-- _class: lead -->
 
 ---
 
@@ -1126,6 +1235,8 @@ Global edge + health routing; Strong identity + least privilege; Observability s
 | Max Performance | Cost Optimization | Over-provisioning high SKU | Right-size via load test baselines + scheduled reviews |
 | Rapid Deployment Velocity | Security / Stability | Increased change failure risk | Shift-left scans + progressive delivery |
 
+<!-- _footer: "Drill in: learn.microsoft.com/azure/well-architected/[pillar]/tradeoffs — pair with ADR when tensions get contentious." -->
+
 ---
 
 # Pillar Interactions & Decision Anchors
@@ -1133,38 +1244,37 @@ Global edge + health routing; Strong identity + least privilege; Observability s
 <div class="columns">
 <div>
 
-## Operational Excellence Enables All
+## Operational Excellence is the Carrier
 
-- Enables secure deployments
-- Improves reliability through consistency
-- Provides insights for cost optimization
-- Supports performance monitoring
+- Safe-deploy practices unlock Security & Reliability gains
+- Unified observability feeds Cost & Performance decisions
+- Automation guardrails turn policy into lived behavior
+- Without OpEx, the other pillars stall at "documented"
 
 </div>
 <div>
 
 ## Decision Anchors
 
-- Start with explicit business outcomes & candidate SLOs
-- Declare non-negotiable (guardrail) pillars per workload tier
-- Make trade-offs transparent & time-box re-evaluation
+- Start from explicit business outcomes + candidate SLOs
+- Declare the **non-negotiable** pillar(s) per workload tier
 - Record decisions + linked metrics in ADRs
 
-> Momentum Pattern: Clear anchors + observable metrics turn pillar tension into a continuous improvement loop.
+> Clear anchors + observable metrics turn pillar tension into a continuous improvement loop - not a yearly fight.
 
 </div>
 </div>
 
 ---
 
-### 🔁 Continuous Improvement & Pillar Maturity
+# 🔁 Continuous Improvement & Pillar Maturity
 
 | Level | Trait | Focus |
 |-------|-------|-------|
 | 1 Ad Hoc | Reactive, inconsistent | Baseline inventory & metrics |
 | 2 Emerging | Initial standards appear | Define SLOs & security baselines |
 | 3 Defined | Repeatable + dashboards | Tighten feedback loops |
-| 4 Managed | Data-driven & proactive | Optimize cost & performance  SLIs |
+| 4 Managed | Data-driven & proactive | Optimize cost & performance SLIs |
 | 5 Optimizing | Resilience engineering | Predictive automation |
 
 Monthly drift scan → Quarterly deep review → Annual strategic recalibration.
@@ -1172,6 +1282,9 @@ Monthly drift scan → Quarterly deep review → Annual strategic recalibration.
 ---
 
 # Scenario-Based Trade-Off Discussions
+
+<!-- _class: section -->
+<!-- _paginate: false -->
 
 ---
 
@@ -1259,21 +1372,26 @@ Monthly drift scan → Quarterly deep review → Annual strategic recalibration.
 
 # Well-Architected Framework Service Guides
 
-A Decision-Making Tool
+**A decision-making tool, not a configuration manual.**
 
-- Assist in selecting Azure components for your workload  
-- Highlight core features and capabilities essential for excellence  
-- Not exhaustive configuration guides; emphasize what aligns with Well-Architected pillars  
-- Enable informed decisions that support a state of operational excellence
+- Pick & configure Azure components through the lens of all five pillars
+- Highlight the features that actually move pillar outcomes - skip the rest
+- Use as the first stop when a service lands on your architecture
+- Pair with Advisor Score + WAF Review for an evidence-backed shortlist
+
+> Refreshed March 2026: **SQL MI, MySQL flexible server, Container Apps, Event Grid, Event Hubs, Service Bus, Blob, Databricks, Virtual WAN** - all now span all five pillars.
 
 ---
 
 # Well-Architected Workloads
 
-- Align workloads with business outcomes using the Azure Well-Architected Framework  
-- Balancing functional requirements and nonfunctional trade-offs  
-- Integrate design fundamentals, trade-offs, and operational best practices
-- Maintain a living workload dossier: scope (services, data, AI models), personas (human + agentic), dependencies, technical debt register, budget envelope, KPIs & maturity scores
+A **workload** (WAF 2026) = app code + data + **AI models** + supporting infra, working together to deliver a business outcome.
+
+- Align workload decisions to business outcomes, not service catalogs
+- Balance functional requirements with non-functional trade-offs
+- Integrate fundamentals, trade-offs, and ops best practices into one system
+- Keep a **living workload dossier**: scope, personas (human + agentic), dependencies, tech-debt register, budget envelope, KPIs, maturity scores
+- Workload team **+** centralized teams: who owns which guardrail?
 
 ---
 
@@ -1282,6 +1400,7 @@ A Decision-Making Tool
 - AI
 - Azure Virtual Desktop  
 - Azure VMware Solution  
+- High Performance Computing (HPC)
 - Mission-critical applications  
 - Oracle
 - SaaS Solutions
@@ -1289,9 +1408,43 @@ A Decision-Making Tool
 
 ---
 
-![bg fill](./img/questions.jpg)
+# What To Do Monday
+
+One concrete action per pillar — pick **one row**, land it this week, bring back evidence.
+
+| Pillar | This week's move |
+|--------|------------------|
+| Reliability | Run a **timed** restore drill on your #1 critical flow |
+| Security | Expire one standing privileged role; enable PIM + JIT on top 3 admin paths |
+| Cost Optimization | Turn on policy-enforced tags (env, owner, costCenter) + a weekly idle report |
+| Operational Excellence | Define one SLO + error budget; wire its alert into ChatOps |
+| Performance Efficiency | Capture a P95 / P99 baseline on the hottest flow; name the worst span |
+
+> Modernizing cloud excellence isn't an event - it's a habit. One ADR, one drill, one baseline at a time.
 
 ---
+
+<!-- _paginate: false -->
+
+![bg fill Audience Q&A backdrop with question marks](./img/questions.jpg)
+
+---
+
+# Tell Me How I Did
+
+<!-- _class: outro -->
+
+- **What landed?**
+- **Where go deeper?**
+- **What to trim?**
+
+![bg right QR code linking to feedback form for this talk](./themes/techorama/well-architected-architect-qr-code.png)
+
+<!-- Your feedback shapes the next iteration of this deck. Scan the QR code to share what worked, what didn't, and where you'd like me to focus next time. -->
+
+---
+
+<!-- _class: resources -->
 
 <div class="columns">
 <div>
@@ -1299,6 +1452,7 @@ A Decision-Making Tool
 ## Resources
 
 - [Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/)
+- [What's new in the WAF](https://learn.microsoft.com/en-us/azure/well-architected/whats-new)
 - [Microsoft Learn: Build great solutions with the Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/training/paths/azure-well-architected-framework/)
 - [Azure Advisor](https://learn.microsoft.com/en-us/azure/advisor/advisor-overview)  
 - [Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/browse/)

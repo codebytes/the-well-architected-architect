@@ -1,0 +1,53 @@
+{
+  "agents": {
+    "kirk": {
+      "persistent_name": "Kirk",
+      "universe": "Star Trek (TOS)",
+      "created_at": "2026-05-13T10:05:53Z",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "scotty": {
+      "persistent_name": "Scotty",
+      "universe": "Star Trek (TOS)",
+      "created_at": "2026-05-13T10:05:53Z",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "chekov": {
+      "persistent_name": "Chekov",
+      "universe": "Star Trek (TOS)",
+      "created_at": "2026-05-13T10:05:53Z",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "spock": {
+      "persistent_name": "Spock",
+      "universe": "Star Trek (TOS)",
+      "created_at": "2026-05-13T10:05:53Z",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "mccoy": {
+      "persistent_name": "McCoy",
+      "universe": "Star Trek (TOS)",
+      "created_at": "2026-05-13T10:05:53Z",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "sulu": {
+      "persistent_name": "Sulu",
+      "universe": "Star Trek (TOS)",
+      "created_at": "2026-05-13T10:05:53Z",
+      "legacy_named": false,
+      "status": "active"
+    },
+    "uhura": {
+      "persistent_name": "Uhura",
+      "universe": "Star Trek (TOS)",
+      "created_at": "2026-05-13T10:05:53Z",
+      "legacy_named": false,
+      "status": "active"
+    }
+  }
+}

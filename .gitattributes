@@ -1,3 +1,8 @@
 * text=auto eol=lf
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
+# Squad: union merge for append-only team state files
+.squad/decisions.md merge=union
+.squad/agents/*/history.md merge=union
+.squad/log/** merge=union
+.squad/orchestration-log/** merge=union
