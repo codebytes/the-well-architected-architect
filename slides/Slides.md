@@ -325,14 +325,10 @@ Post-implementation reviews
 
 # 4. Design for Supportability
 
-> Supportability is the bridge from architecture to operations. Design it in, or pay later in MTTR.
-
 <div class="columns">
 <div>
 
 ## 📊 **Observable by Default**
-
-Four-phase monitoring system (WAF design guide, Mar 2026):
 
 1. **Instrument** - OpenTelemetry, structured logs, correlation IDs
 2. **Collect** - unified pipelines, polyglot stores, tiered retention
@@ -347,13 +343,11 @@ Four-phase monitoring system (WAF design guide, Mar 2026):
 - Self-healing (incl. DLQ for poison messages)
 - Graceful degradation + clear error contracts
 - Runbook automation + ChatOps
-- **Failure vs. error** distinction (act vs. log)
-- AI-assisted triage on top of structured telemetry
 
 </div>
 </div>
 
-**Success Metric:** MTTR ↓ ~75% when observability is wired in from day one - not retrofitted after the first Sev2.
+**Success Metric:** MTTR ↓ ~75% when observability wired in from day one, not retrofitted.
 
 <!-- _footer: "OpEx (next) runs this loop — this slide makes sure the loop exists." -->
 
