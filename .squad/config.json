@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "defaultModel": "claude-opus-4.7-xhigh",
+  "notes": "Set 2026-05-13 by Chris Ayers: every team member uses Claude Opus 4.7 (Extra high reasoning). Coordinator may still bump or specialise within this family per task. Remove defaultModel or set to null to return to automatic per-task selection."
+}

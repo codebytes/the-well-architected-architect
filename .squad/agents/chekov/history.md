@@ -58,6 +58,18 @@
 
 **Round:** Flow + enhancement pass (all seven agents spawned in parallel).
 
+## Team Update — 2026-05-13 (Round 5)
+
+**Round:** Final overflow cleanup pass R5.
+
+**Changes applied:**
+
+- **Security - At a Glance (56px 🔴):** Removed `**Quick Win**` heading + body from right column. Combined Quick Win text into existing `<!-- _footer: -->` as a 2-part footer (`Quick Win: … | Security spend IS a cost lever…`). Content preserved; body height reduced ~50px.
+- **Security - Practices & Patterns (39px 🟡):** Micro-trims: `CMK for sensitive data` → `CMK for regulated data`; `with remediation SLAs` → `; defined remediation SLAs`. Conservative cuts targeting 39px residual gap without structural changes.
+- **SDL slide:** Untouched — confirmed clean ✅.
+
+**Commit status:** NO COMMIT — per Chris Ayers' instruction, all R1-R5 edits will be squashed into a single human commit.
+
 **Participants:** Kirk (overall), Scotty (Reliability), Spock (Cost), McCoy (OpEx), Sulu (Performance), Uhura (Layout).
 
 **Cross-pillar handoffs wired this round:**

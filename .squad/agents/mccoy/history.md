@@ -31,6 +31,18 @@
 
 **Notes:** Reframed OpEx Pillar opener to explicitly claim "carrier" role (matches Kirk's existing framing in Trade-Offs). AI-integrated maturity now threads five functional patterns (Task Assist → Recommendations → Artifact generation → Policy validation → Optimization actions) with buy/build tags. Level names aligned to Feb 2026 Microsoft canon. OE:01-OE:11 codes inlined throughout. Proposed Scenario 3 (Legacy Batch) facilitator note on baseline DORA before decomposing hotspots. Submitted draft to Kirk.
 
+## Team Update — 2026-05-13T0955Z (R5 — final cleanup)
+
+**Round:** R5 — last overflow residuals.
+
+**Slides fixed:**
+1. **Operational Excellence - At a Glance** (36px → 0): Deleted `**Quick Win**` block (2 lines + blank). Pattern matches other cleaned At-a-Glance cards.
+2. **Operational Excellence - Practices & Automation** (5px → 0): Removed `+ security` from test-strategy bullet (longest line trimmed by 2 words).
+
+**No git mutations.** Chris Ayers commits.
+
+---
+
 ## Team Update — 2026-05-13T0935Z
 
 **Round:** R4 overflow fixes (McCoy scope only — 3 OpEx slides).

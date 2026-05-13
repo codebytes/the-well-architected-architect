@@ -16,9 +16,15 @@
 - 2026-05-13 (flow finding): Chekov added a Security→Cost bridge at l.830 ("containment isn't free; security spend is the next cost lever to make legible"). My pillar opener picks it up explicitly. The Cost→OpEx bridge was missing — added it at l.958 following the existing Performance→Trade-Offs convention (l.1198).
 - 2026-05-13 (overflow fix pass): Three surgical edits to resolve Uhura-flagged overflow. (1) Practices & Governance (p.39, 38px): dropped "Sustainability KPIs as energy / carbon proxy" — no CO:## anchor, not measurable, first candidate for removal. (2) Maturity Progression (p.42, 32px): tightened trajectory blockquote from 73 to 51 chars ("at scale" removed, "the next one stalls" → "the next stalls"). (3) At a Glance (p.43, 183px): removed handoff bridge blockquote from slide body; relocated to `<!-- _footer: "Optimization without operational discipline reverts — Operational Excellence." -->` per prescribed pattern. Pattern confirmed: `.glance` class cannot accommodate a third block below columns — always move handoff bridges to `_footer` on glance slides.
 
-- 2026-05-13 (R4 overflow fix pass — subtractive): Three fixes. (1) At a Glance (183px → ~0): DELETED body blockquote `> Next: cost discipline rides on operational discipline…` — this was the R3 bug: footer directive had been added but the body blockquote was never removed, leaving both and achieving zero improvement. Body blockquote now gone; only `<!-- _footer: -->` remains. (2) Practices & Governance (14px): trimmed `variable/` from `(variable/flexible)` on Savings Plans bullet — ~5px relief, meaning intact. (3) Maturity Progression (32px): DELETED body blockquote `> Trajectory: visibility → signals → automation…`, REPLACED with `<!-- _footer: -->` directive.  **R3 lesson:** additive-only `_footer` edits without removing the body blockquote are a zero-improvement no-op. Always verify the `>` blockquote line is ABSENT after adding `<!-- _footer: -->`.
+- 2026-05-13 (R5 final cleanup — subtractive only): Two fixes, no commits. (1) At a Glance (116px CRITICAL): DELETED `**Quick Win**` block (3 lines: heading + body) AND dropped 2 of 4 Signals to Track bullets (`Savings Plan + Reservation coverage` and `Anomaly MTTR`) — combined ~6 lines, ~100–120px relief. Retained the two highest-signal bullets: idle < 5% and unit cost trend. (2) Practices & Governance (14px MODERATE): removed `(steady)` and `(flexible)` parentheticals from Reservations + Savings Plans bullet — ~18 chars, ~8–12px relief. Both edits verified by re-reading slide sections after edit. No git mutations executed per Chris's explicit instruction.
 
-## Team Update — 2026-05-13
+## Team Update — 2026-05-13 (R5)
+
+**Round:** Final cleanup pass (overflow only, no commits).
+
+**Cost slides touched:** At a Glance, Practices & Governance.
+
+**Changes:** Deleted Quick Win block + 2 Signals bullets from At a Glance (116px → ~0). Trimmed 2 parentheticals from Practices & Governance (14px → ~0). No git add/commit/push performed. Chris will squash-commit all pillar owners' work in one clean commit at end of session.
 
 **Round:** Flow + enhancement pass (all seven agents spawned in parallel).
 

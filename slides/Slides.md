@@ -103,7 +103,7 @@ Architecture = an intentional decision system, not a diagram.
 ## Keys
 
 - Surface decisions **in the backlog**, before code commits
-- Classify **one-way doors** (hard to reverse) vs **two-way doors** (cheap to undo)
+- Classify **one-way doors** (hard to reverse) vs **two-way doors** (easy to undo)
 - Capture rationale, alternatives & trade-offs in an **ADR**
 - Re-open after incidents, drift, or KPI shifts
 
@@ -450,69 +450,30 @@ Post-implementation reviews
 
 ---
 
+# Business Impact of the WAF
+
+Outcomes from organizations that adopted the framework:
+
+- **304% ROI** within 3 years (Forrester TEI study)
+- **40% reduction** in downtime — Global Retailer
+- **25% cost savings** — Financial Services
+- **75% faster** server updates — Manufacturing
+- **93/100** security score — Profisee
+
+<!-- _footer: "Source: Forrester Total Economic Impact™ of Azure WAF (Microsoft-commissioned) / Microsoft WAF customer case studies" -->
+
+---
+
 # Microsoft Azure Well-Architected Framework Goals
 
 The Azure Well-Architected Framework drives real world business outcomes by guiding organizations to:
 
 - **Enhance Resilience:** Higher availability and faster recovery  
 - **Improve Security:** Proactive protection of critical data  
-- **Optimize Costs:** Streamlined resource usage  
-- **Accelerate Innovation:** Faster feature deployment  
-- **Boost Operational Excellence:** Robust monitoring and automation
-
----
-
-# Business Impact: Real Numbers
-
-## Proven ROI & Outcomes
-
-- **304% ROI** within 3 years (Forrester Study)
-- **40% reduction** in downtime (Global Retailer)
-- **25% cost savings** (Financial Services)
-- **75% faster** server updates (Manufacturing)
-- **93/100** security score (Profisee)
-
-<!-- Removed missing image: img/roi-chart.png (not found). Consider adding a local chart image or keep text KPIs only. -->
-
----
-
-# Framework Benefits
-
-- Resilient, available, and recoverable workloads  
-- Strong security and risk management  
-- Optimized costs with high ROI  
-- Support for agile development and operations  
-- Consistent performance and scalability
-
----
-
-# What's New in the WAF (2025-2026)
-
-<div class="columns">
-<div>
-
-### 🆕 New Guidance
-
-- **HPC workloads**: architecture pattern, design methodology & principles - coupled compute + low-latency interconnect
-- **Monitoring system design**: instrument → collect → analyze → visualize
-- **Architecture strategies for testing** across the full lifecycle
-- **Align technical strategy with business requirements** (5-step process)
-
-</div>
-<div>
-
-### 🔄 Refreshed
-
-- **AI threaded through the OpEx maturity model** - buy (Copilot, SRE agents) vs build (custom GenAI), with safeguards per level
-- **Secure dev lifecycle**: Dev Box, Codespaces, golden images, IDE extensions, red-teaming
-- **Self-healing**: DLQ for corrupt messages; failures-vs-errors; read/write failure separation
-- **Service guides rewritten** (all 5 pillars, incl. Cost): SQL MI, MySQL, Container Apps, Event Grid/Hubs, Service Bus, Blob, Databricks, Virtual WAN
-- **Cost guidance deepened**: AI/GPU patterns, commitment portfolio, policy-based controls, anomaly insights
-
-</div>
-</div>
-
-<!-- _footer: "Track WAF What's New: learn.microsoft.com/azure/well-architected/whats-new — review monthly." -->
+- **Optimize Costs:** Streamlined resource usage with high ROI  
+- **Accelerate Innovation:** Faster feature deployment and agile operations  
+- **Boost Operational Excellence:** Robust monitoring and automation  
+- **Optimize Performance:** Consistent scalability and right-sized workloads
 
 ---
 
@@ -526,7 +487,7 @@ The Azure Well-Architected Framework drives real world business outcomes by guid
 | Operational Excellence | Efficient operations & rapid improvement | Security (control vs velocity), Cost (tooling spend) |
 | Performance Efficiency | Right-size & scale on demand | Cost (over-provision), Reliability (scale during incident) |
 
-> Ongoing fitness regimen, not a one-time audit. Each pillar has a `/tradeoffs` page on learn.microsoft.com — more in the Trade-Offs section.
+> Ongoing fitness regimen, not a one-time audit. Each pillar has a `/tradeoffs` page on learn.microsoft.com.
 
 ---
 
@@ -542,11 +503,12 @@ The Azure Well-Architected Framework drives real world business outcomes by guid
 
 # Reliability - Principles
 
-Reliability = keep the user promise under failure. Be **resilient**, **recoverable**, **available** — across code, infra, and ops.
+Reliability = keep the user promise under failure. 
+Be **resilient**, **recoverable**, **available** — across code, infra, and ops.
 
 - Set targets **per critical flow**, not a blanket "always up"
 - Rate user/system flows; run FMA before any redundancy spend
-- SLI/SLO + RTO/RPO per flow — negotiated with the business, not assumed
+- SLI/SLO + RTO/RPO per flow — negotiated with the business
 - Design for graceful degradation; keep critical paths boring and simple
 - Distinguish **failures** (need intervention) from **errors** (expected ops)
 - Treat **read and write failures separately** — different blast radius, different fix
@@ -608,8 +570,8 @@ Health-routed traffic → AZ-redundant active region → paired-region warm stan
 
 | Level | You're Here When... | Next Shift | Accelerator |
 |-------|---------------------|-----------|------------|
-| 1 Ad Hoc | Manual restarts; backup validity unknown; no defined RTO/RPO; "we'll know if it breaks" | Define & test RTO/RPO for top flow | Scope + first timed restore |
-| 2 Baseline | Documented failover path; ad-hoc probes; DR exercise lives on a wiki page | Health probes + scheduled restore drills | Quarterly restore-drill cadence |
+| 1 Ad Hoc | Manual restarts; backup validity unknown; no defined RTO/RPO | Define & test RTO/RPO for top flow | Scope + first timed restore |
+| 2 Baseline | Documented failover path; ad-hoc probes; DR exercise on a wiki page | Health probes + scheduled restore drills | Quarterly restore-drill cadence |
 | 3 Structured | Runbooks executed end-to-end; SLOs defined; starter chaos on one critical flow | Error budget governs releases; chaos broadens | Chaos on every Tier-0 flow |
 | 4 Proactive | Auto failover + health model; CI failover test green; timed restore KPI tracked monthly | Flow-level dashboards; failure-mode library cross-team | Automated chaos in pipelines |
 | 5 Adaptive | Self-heal loops live; scheduled chaos; AI-assisted anomaly triage | Predictive scaling; novel-failure rehearsal; chaos as a release gate | Continuous resilience engineering as team practice |
@@ -631,7 +593,6 @@ Health-routed traffic → AZ-redundant active region → paired-region warm stan
 🧭 AZ-first; multi-region only for Tier 0  
 🛡️ Backup + geo-replication + **tested** restore  
 🩺 Flow-level health model + synthetic probes  
-🩹 DLQs, retries, idempotency for self-heal  
 
 **Fast Diagnostic (the Monday question)**  
 `When did you last successfully restore from backup — timed, end-to-end?`
@@ -649,13 +610,10 @@ Health-routed traffic → AZ-redundant active region → paired-region warm stan
 - RTO / RPO adherence on the last real drill  
 - Timed restore drill success  
 
-**Quick Win (this week)**  
-30-min tabletop on top flow → name one unknown → one failover or restore script by Friday.
-
 </div>
 </div>
 
-<!-- _footer: "Up next: reliability assumes the system is still yours — Security." -->
+<!-- _footer: "Quick Win: 30-min tabletop on top flow → name one unknown → one restore script by Friday. | Up next: Security." -->
 
 ---
 
@@ -694,11 +652,11 @@ Zero Trust by default. Identity is the perimeter. Threat-model first, assume bre
 **Network & Data**
 
 - Segmentation, private endpoints, WAF + DDoS
-- Encrypt in transit & at rest; CMK for sensitive data
+- Encrypt in transit & at rest; CMK for regulated data
 
 **Detection & Response**
 
-- Defender for Cloud + Sentinel with remediation SLAs
+- Defender for Cloud + Sentinel; defined remediation SLAs
 
 </div>
 <div>
@@ -731,7 +689,7 @@ Zero Trust by default. Identity is the perimeter. Threat-model first, assume bre
 </div>
 <div>
 
-**Emerging (2026)**
+**Emerging**
 
 - AI workload safeguards: prompt-injection controls, content filters, model-supply-chain integrity
 - **Agentic SOC**: Copilot + Sentinel for automated triage & containment
@@ -819,13 +777,11 @@ Risks if Ignored (by Level):
 - Key Vault rotation cadence  
 - Vulnerability MTTR  
 
-**Quick Win**  
-Expire standing roles; enable PIM + JIT on top 3 admin paths this week.
 
 </div>
 </div>
 
-<!-- _footer: "Security spend IS a cost lever — Cost Optimization." -->
+<!-- _footer: "Quick Win: Expire standing roles; enable PIM + JIT on top 3 admin paths this week. | Security spend IS a cost lever — Cost Optimization." -->
 
 ---
 
@@ -855,11 +811,11 @@ Drives financial accountability, elasticity, and spend-to-value alignment. Secur
 
 - Policy-enforced tags (env, owner, costCenter) + budget alerts at 50 / 80 / 100% (CO:04)
 - Autoscale on explicit triggers (CPU, queue depth, predictive); scheduled nonprod shutdown (CO:12)
-- Rightsize quarterly; commitment portfolio = Reservations (steady) + Savings Plans (flexible) (CO:05)
+- Rightsize quarterly; commitment portfolio = Reservations + Savings Plans (CO:05)
 - Spot for batch & interruptible; storage lifecycle hot → cool → archive (CO:10)
 - ML-driven anomaly detection → auto-route runbook on threshold breach (CO:03)
 
-Emerging (2026):
+Emerging:
 
 - AI / agent workload cost allocation — high variance, dedicated tags (CO:07)
 - Flow-cost optimization (CO:09) + caching on expensive hot paths
@@ -946,12 +902,7 @@ Aim for unit economics clarity before advanced forecasting automation.
 **Signals to Track**  
 
 - Idle / unattached resources (target < 5%)
-- Savings Plan + Reservation coverage (target > 70%)
-- Anomaly MTTR (target < 24h)
 - Unit cost ($/txn, $/user) — must trend down
-
-**Quick Win**  
-Policy-enforced tag set (env, owner, costCenter) + weekly idle report + anomaly alert routing.
 
 </div>
 </div>
@@ -989,7 +940,7 @@ OpEx = the operating system around your workload (OE:01-OE:11 checklist).
 
 - Gated CI/CD + **policy-as-code supply chain** (OE:06) - SBOM, signing, scan, immutable artifacts
 - **Progressive delivery** (OE:11): canary / blue-green / deployment stamps, health-gated, with bake time
-- **Test strategy + plan per workload** (OE:09): pyramid (unit → integration → E2E) + chaos + load + security
+- **Test strategy + plan per workload** (OE:09): pyramid (unit → integration → E2E) + chaos + load
 - Test in production *with safeguards* - feature flags, scoped canary, kill switches
 - Unified observability spine (OE:07): instrument → collect → analyze → visualize
 - **Structured incident response** (OE:08) + blameless retros → **ADR feedback**
@@ -1085,8 +1036,6 @@ Level names align with WAF OpEx maturity model (Feb 2026 update).
 - Auto-remediation success count  
 - Retro → ADR cycle time
 
-**Quick Win**  
-Define one SLO + error budget; wire alert to ChatOps; run a tabletop.
 
 </div>
 </div>
@@ -1127,7 +1076,7 @@ OpEx instrumented the system. Performance proves it under load — at the tail, 
 
 ---
 
-# Performance Efficiency - Emerging 2026
+# Performance Efficiency - Emerging Practices
 
 - **Predictive autoscale** — ML-forecasted demand, provision before the spike, guardrail min/max
 - **Adaptive concurrency** — KEDA, Functions / App Service Premium throttle on real pressure
@@ -1216,13 +1165,11 @@ Performance Efficiency Risks if Ignored (by Level):
 - Autoscale reaction time & accuracy  
 - Tokens / sec for AI flows (where applicable)
 
-**Quick Win**  
-Run a 1-hour load test; record P95 / P99 baseline + name the top 1 slow span.
 
 </div>
 </div>
 
-<!-- _footer: "Performance is a promise you continuously verify — Trade-Offs." -->
+<!-- _footer: "Quick Win: run a 1-hr load test → record P95/P99 baseline + name top slow span. | Performance is a promise you continuously verify — Trade-Offs next." -->
 
 ---
 

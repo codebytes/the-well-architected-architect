@@ -9,6 +9,13 @@
 
 <!-- Append new learnings below. -->
 
+- 2026-05-13 (overflow fix pass): Applied Uhura validation findings to three Performance slides.
+  - **Slide 53 (Practices, 147px 🔴)**: Chose Option B — split. Removed the four-bullet "Emerging (2026)" block from Practices slide; promoted to new dedicated slide "Performance Efficiency - Emerging 2026" (inserted after Practices, before Key Metrics). Established patterns stay top-billing; predictive/adaptive framed as L5 destination. New slide closes with "establish a repeatable baseline before reaching for predictive or adaptive controls."
+  - **Slide 56 (Maturity Progression, 38px 🟡)**: Moved trajectory blockquote to `<!-- _footer: ... -->`. Also tightened "measure" → "baseline" for precision alignment with L2 table language.
+  - **Slide 57 (At a Glance, 123px 🔴)**: Converted handoff bridge `> Next: performance never lives alone...` to `<!-- _footer: "Performance is a promise you continuously verify — Trade-Offs." -->`. Handoff intent preserved; vertical pressure on `.glance` layout eliminated.
+  - Deck gains +1 slide (total section count increases by 1). Page numbers from slide 54 onward shift by +1 — Uhura should re-validate page index if needed.
+  - Lesson: `.glance` class was designed for exactly two content blocks. Any third block (even a one-liner handoff) causes 100px+ overflow. Always use `_footer` for handoff bridges on glance slides.
+
 - 2026-05-13: Perf slides target P95 latency SLO met, cache hit ratio > 85%, autoscale reaction < 5 min. Maturity: Targets → Baseline Metrics → Signal Driven → Prod Optimization → Continuous Tuning. Quick win recorded as a 1-hour load test to capture baseline P95 + identify top slow span.
 - 2026-05-13: Refreshed all Performance Efficiency slides (Pillar, Principles, Practices, Key Metrics, Architecture Example, Maturity, At a Glance — Slides.md ~1077-1175 after parallel edits shifted line numbers).
   - **Voice fix**: Pillar opener now uses tail-latency truth framing — `"Will it hold its SLOs under load — at P99, not on average?"` + "The average lies; tail latency is the truth." Replaced generic "Ensures responsive scaling..." line.
@@ -46,3 +53,27 @@
 - **Performance → Trade-Offs** — "performance never lives alone — every gain costs something elsewhere" (Perf At-a-Glance) introduces Trade-Offs chapter.
 
 **Notes:** Proposed three optional Trade-Offs draft tweaks (Scenario 2 P95 rehearsal multiples, Scenario 4 P95 baseline early, Trade-Off Matrix P95 delta verification). Submitted to Kirk; recommendation: take #1 + #2, defer #3.
+
+## Team Update — 2026-05-13 (Round 5)
+
+**Round:** Final overflow cleanup pass.
+
+**Fix:** Moved `**Quick Win**` block (heading + body) out of the right column of `Performance Efficiency - At a Glance` into the `_footer` directive. Right column now carries only `Typical Early Gap` + `Signals to Track` (4 bullets), resolving the 56px residual overflow. Quick Win content preserved in footer: `"Quick Win: run a 1-hr load test → record P95/P99 baseline + name top slow span."` Chris's "What To Do Monday" hook remains visible.
+
+**Option chosen:** A (footer migration). Options B (delete) and C (drop a bullet) would have lost narrative value.
+
+**Slides touched:** `Performance Efficiency - At a Glance` only. No other slides modified.
+
+**Log:** `.squad/decisions/inbox/sulu-overflow-fix-r5.md`
+
+---
+
+## Team Update — 2026-05-13 (Round 4)
+
+**Round:** Overflow fix pass (single surgical edit).
+
+**Fix:** Removed body blockquote `> Baseline first. Tune second. The average lies — instrument the tail.` from `Performance Efficiency - At a Glance` left column (~line 1222). Blockquote was 56px tall — exactly the reported overflow. Maxim already lives on the Principles slide; duplication was unnecessary and broke the `.glance` layout.
+
+**Slides touched:** `Performance Efficiency - At a Glance` only. Practices split and Emerging 2026 slides untouched. Footer directive preserved.
+
+**Log:** `.squad/decisions/inbox/sulu-overflow-fix-r4.md`

@@ -27,7 +27,31 @@
   - https://learn.microsoft.com/en-us/azure/well-architected/reliability/disaster-recovery (RE:09 — defines active-passive cold standby vs warm standby; DR activation criteria; criticality tiers)
   - https://learn.microsoft.com/en-us/azure/well-architected/reliability/failure-mode-analysis (Jan 2026 — failures-vs-errors + read/write separation)
   - https://learn.microsoft.com/en-us/azure/well-architected/whats-new (Jan/Feb/Mar 2026 entries — Service Bus PeekLock/IsTransient/duplicate-detection, Blob SDK transient + secondary-read graceful degrade, SQL DB connection-pool isolation, FMA failures-vs-errors, SQL MI rewrite, Container Apps refresh, Event Grid unified service guide with chaos engineering, observability article reorganized around health-model alignment)
-- 2026-05-13 (terminology check): Deck already uses "AZ-first" / "AZ-redundant" (good) and "paired-region warm standby" (matches 2026 DR terminology). No "zonal redundancy" vs "zone redundancy" drift in the Reliability slides.
+- 2026-05-13 (overflow fix pass): Handoff footer pattern — use `<!-- _footer: "Up next: …" -->` scoped to the At-a-Glance slide rather than a blockquote below the columns. Blockquotes after a `.glance` two-column layout push 200px+ past the frame. Footer directive renders in the footer bar with zero vertical cost to main content.
+- 2026-05-13 (overflow fix pass): Practices slide density target — ≤6 bullets per slide for the Reliability pillar. When content exceeds this, split by audience/concern (Engineering vs Operations) rather than cutting. Both halves keep their framing lead sentence so each slide stands alone.
+- 2026-05-13 (R4 overflow fix): At-a-Glance: removed duplicate body blockquote (maxim already on Principles) and trimmed Quick Win ~50%. Principles: saved 4 words across two bullets. Maturity: removed L5 parenthetical detail + tightened L4/L5 cells. Footer handoffs retained throughout.
+
+## Team Update — 2026-05-13 R5
+
+**Round:** 5 — final cleanup pass (LAST overflow round).
+
+**Slides fixed:**
+- `Reliability - At a Glance` (77px CRITICAL → ~0): dropped `🩹 DLQs/retries/idempotency` bullet (Core Azure 4→3); removed Quick Win block from columns; folded Quick Win + handoff into single footer: `"Quick Win: 30-min tabletop on top flow → name one unknown → one restore script by Friday. | Up next: Security."`
+- `Reliability - Principles` (11px MODERATE → ~0): trimmed SLI/SLO bullet by 4 words (", not assumed" removed).
+- `Reliability - Maturity Progression` (26px MODERATE → ~0): trimmed L1 "You're Here When" (−6 words: removed `; "we'll know if it breaks"`); trimmed L2 "You're Here When" (−1 word: `lives`).
+
+**Hard rules respected:** No git mutations; only Reliability slides touched; footer pattern used for overflow.
+
+## Team Update — 2026-05-13 R4
+
+**Round:** 4 — targeted overflow reduction (Scotty scope only).
+
+**Slides fixed:**
+- `Reliability - At a Glance` (156px → targeting ≤720px): dropped duplicate blockquote + trimmed Quick Win line.
+- `Reliability - Principles` (11px → ~0): 4-word trim across two bullets.
+- `Reliability - Maturity Progression` (26px → ~0): L4/L5 table cell tightening, parenthetical removed.
+
+**Hard rules respected:** Engineering/Operations split untouched; footer handoff pattern preserved.
 
 ## Team Update — 2026-05-13
 
