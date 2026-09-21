@@ -1,32 +1,23 @@
 # The Well-Architected Architect
 
-This repository contains resources and demos for the talk "The Well-Architected Architect" by Chris Ayers.
+Explore solution architecture principles and the Azure Well-Architected Framework with Chris Ayers. Learn how to balance reliability, security, cost, operational excellence, and performance in cloud workloads.
 
 ## Slides
 
-The slides for the talk can be found at:\
-[https://chris-ayers.com/the-well-architected-architect/](https://chris-ayers.com/the-well-architected-architect/)
-
-## Repository Content
-
-This repository contains demos showcasing various scenarios and slides.
+[View HTML slides](https://chris-ayers.com/the-well-architected-architect/) | [Download PDF](https://chris-ayers.com/the-well-architected-architect/Slides.pdf)
 
 ## Resources
 
+- [Slide source](slides/Slides.md)
 - [Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/)
 - [Well-Architected Framework perspective on Azure services](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/?product=popular)
 - [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/)
 
-## Connect with Chris Ayers
+## Contact
 
-Feel free to connect with Chris Ayers on social media and visit his blog for more information on Bicep and other topics:
+**Chris Ayers**, Principal Software Engineer
 
-- BlueSky: [@chris-ayers.com](https://bsky.app/profile/chris-ayers.com)
-- LinkedIn: [chris-l-ayers](https://linkedin.com/in/chris-l-ayers/)
-- Blog: [https://chris-ayers.com/](https://chris-ayers.com/)
-- GitHub: [Codebytes](https://github.com/codebytes)
-- Twitter: [@Chris_L_Ayers](https://twitter.com/Chris_L_Ayers)
-- Mastodon: [@Chrisayers@hachyderm.io](https://hachyderm.io/@Chrisayers)
+[Blog](https://chris-ayers.com/) | [GitHub](https://github.com/codebytes) | [LinkedIn](https://linkedin.com/in/chris-l-ayers/) | [Bluesky](https://bsky.app/profile/chris-ayers.com) | [Mastodon](https://hachyderm.io/@Chrisayers) | [Twitter](https://twitter.com/Chris_L_Ayers)
 
 ## License
 
