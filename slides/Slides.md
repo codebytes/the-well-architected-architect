@@ -1,7 +1,7 @@
 ---
 marp: true
 theme: custom-techorama
-footer: 'Chris Ayers | chris-ayers.com | Principal SWE, Microsoft'
+footer: 'Chris Ayers | chris-ayers.com | Principal Software Engineer / Azure EngOps AzRel, Microsoft'
 paginate: true
 ---
 
@@ -32,7 +32,7 @@ paginate: true
 ## Chris Ayers
 
 _Principal Software Engineer_
-_Azure CXP AzRel_
+_Azure EngOps AzRel_
 _Microsoft_
 
 <i class="fa-brands fa-bluesky"></i> BlueSky: [@chris-ayers.com](https://bsky.app/profile/chris-ayers.com)  
@@ -560,6 +560,10 @@ If you haven't run the runbook, you don't have a runbook.
 
 # Reliability - Architecture Example
 
+<style scoped>
+section { padding-top: 30px; padding-bottom: 60px; }
+</style>
+
 ![Resilient architecture illustration showing redundant regional deployment w:850px center](./img/resilient.png)
 
 Health-routed traffic → AZ-redundant active region → paired-region warm standby → geo-replicated data → DLQs for poison messages. Each layer maps to a tested failure mode, not a hypothetical one.
@@ -889,8 +893,6 @@ Aim for unit economics clarity before advanced forecasting automation.
 **Fast Diagnostic**  
 `Idle spend %` + tag coverage heatmap + anomaly MTTR
 
-> Cost fitness = ownership → visibility → signals → automation. Optimize after measuring.
-
 </div>
 <div>
 
@@ -901,6 +903,8 @@ Aim for unit economics clarity before advanced forecasting automation.
 
 - Idle / unattached resources (target < 5%)
 - Unit cost ($/txn, $/user) — must trend down
+
+> Cost fitness = ownership → visibility → signals → automation. Optimize after measuring.
 
 </div>
 </div>
@@ -1426,6 +1430,15 @@ One concrete action per pillar — pick **one row**, land it this week, bring ba
 
 ![bg fill Audience Q&A backdrop with question marks](./img/questions.jpg)
 
+<style scoped>
+footer {
+  color: var(--techo-navy) !important;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+</style>
+
 ---
 
 # Tell Me How I Did
@@ -1464,7 +1477,7 @@ One concrete action per pillar — pick **one row**, land it this week, bring ba
 ## Chris Ayers
 
 _Principal Software Engineer_
-_Azure CXP AzRel_
+_Azure EngOps AzRel_
 _Microsoft_
 
 <i class="fa-brands fa-bluesky"></i> BlueSky: [@chris-ayers.com](https://bsky.app/profile/chris-ayers.com)  
