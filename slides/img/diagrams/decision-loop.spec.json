@@ -1,0 +1,21 @@
+{
+  "title": "An evidence-driven decision loop",
+  "description": "Identify, analyze, decide, implement, and learn. Learning feeds the next identification of the problem. Record the choice in an ADR and revisit it when evidence changes. This is the talk's method, not an official WAF sequence.",
+  "background": "#f2f8ff",
+  "padding": 30,
+  "nodes": [
+    {"id":"identify","label":"Identify\nBusiness need","x":20,"y":20,"width":220,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":28},
+    {"id":"analyze","label":"Analyze\nCompare options","x":420,"y":20,"width":240,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":28},
+    {"id":"decide","label":"Decide\nRecord the ADR","x":840,"y":20,"width":220,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"implement","label":"Implement\nTest the choice","x":840,"y":240,"width":220,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"learn","label":"Learn\nRevisit assumptions","x":20,"y":240,"width":240,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"evidence","label":"Evidence changes the choice.","x":320,"y":145,"width":440,"height":55,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":28}
+  ],
+  "edges": [
+    {"source":"identify","target":"analyze","orthogonal":true,"strokeWidth":2},
+    {"source":"analyze","target":"decide","orthogonal":true,"strokeWidth":2},
+    {"source":"decide","target":"implement","orthogonal":true,"strokeWidth":2},
+    {"source":"implement","target":"learn","orthogonal":true,"strokeWidth":2},
+    {"source":"learn","target":"identify","orthogonal":true,"strokeWidth":2}
+  ]
+}

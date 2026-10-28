@@ -1,0 +1,19 @@
+{
+  "title": "Noncritical work delays acknowledgement",
+  "description": "Illustrative baseline: checkout persists required order state but also waits for a receipt email before acknowledging the order. The extra synchronous dependency can delay checkout even when the order is durable.",
+  "background": "#f2f8ff",
+  "padding": 30,
+  "nodes": [
+    {"id":"customer","label":"Customers\nStill waiting","x":20,"y":140,"width":150,"height":80,"fill":"#fff1e9","stroke":"#8a4424","fontColor":"#103f79","fontSize":24},
+    {"id":"edge","label":"Edge\nWaiting","x":230,"y":140,"width":150,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"checkout","label":"Checkout\nWaits for email","x":440,"y":140,"width":210,"height":80,"fill":"#fff1e9","stroke":"#8a4424","fontColor":"#103f79","fontSize":26},
+    {"id":"data","label":"Order data\nAlready durable","x":810,"y":40,"width":240,"height":100,"shape":"cylinder","fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":24},
+    {"id":"email","label":"Receipt email\nWait for send","x":810,"y":260,"width":240,"height":80,"fill":"#fff1e9","stroke":"#8a4424","fontColor":"#103f79","fontSize":26}
+  ],
+  "edges": [
+    {"source":"customer","target":"edge","orthogonal":true,"strokeWidth":2},
+    {"source":"edge","target":"checkout","orthogonal":true,"strokeWidth":2},
+    {"source":"checkout","target":"data","orthogonal":true,"strokeWidth":2},
+    {"source":"checkout","target":"email","orthogonal":true,"strokeWidth":3}
+  ]
+}

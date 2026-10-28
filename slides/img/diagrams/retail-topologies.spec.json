@@ -1,0 +1,28 @@
+{
+  "title": "Four checkout recovery candidates",
+  "description": "Four equally weighted conceptual choices: zonal deployment in one region; warm standby in another region; active-active serving in two regions; or pilot light with only essentials running in the secondary. None guarantees recovery or ranks costs without workload requirements.",
+  "background": "#f2f8ff",
+  "padding": 30,
+  "nodes": [
+    {"id":"a-label","label":"A / Zonal","x":20,"y":10,"width":240,"height":50,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":28},
+    {"id":"b-label","label":"B / Warm standby","x":290,"y":10,"width":250,"height":50,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":26},
+    {"id":"c-label","label":"C / Active-active","x":560,"y":10,"width":250,"height":50,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":26},
+    {"id":"d-label","label":"D / Pilot light","x":830,"y":10,"width":250,"height":50,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":26},
+    {"id":"a-region","label":"","x":30,"y":90,"width":220,"height":240,"fill":"none","stroke":"#0f4b93","strokeWidth":2},
+    {"id":"a-title","label":"One region\nServing","x":40,"y":105,"width":200,"height":75,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":26},
+    {"id":"zone-a","label":"A","x":45,"y":220,"width":50,"height":60,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"zone-b","label":"B","x":115,"y":220,"width":50,"height":60,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"zone-c","label":"C","x":185,"y":220,"width":50,"height":60,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"b-primary","label":"Region 1\nServing","x":310,"y":90,"width":210,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"b-secondary","label":"Region 2\nReady to serve","x":310,"y":240,"width":210,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26,"dashed":true},
+    {"id":"c-primary","label":"Region 1\nServing","x":580,"y":90,"width":210,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"c-secondary","label":"Region 2\nServing","x":580,"y":240,"width":210,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"d-primary","label":"Region 1\nServing","x":850,"y":90,"width":210,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"d-secondary","label":"Region 2\nEssentials only","x":850,"y":240,"width":210,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":25,"dashed":true}
+  ],
+  "edges": [
+    {"source":"b-primary","target":"b-secondary","orthogonal":true,"dashed":true,"strokeWidth":2},
+    {"source":"c-primary","target":"c-secondary","orthogonal":true,"strokeWidth":2},
+    {"source":"d-primary","target":"d-secondary","orthogonal":true,"dashed":true,"strokeWidth":2}
+  ]
+}

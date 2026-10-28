@@ -26,17 +26,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - name: Test slide motion
+        run: node --test tests/motion.test.mjs
       - name: Copy images
-        run: mkdir build && cp -R slides/img build/img && cp -R slides/themes build/themes
+        run: mkdir build && cp -R slides/img build/img && cp -R slides/themes build/themes && cp -R slides/assets build/assets && cp slides/motion.css build/
 
-      - name: Marp Build (README)
-        uses: docker://marpteam/marp-cli:latest
+      - name: Marp Build (HTML)
+        uses: docker://marpteam/marp-cli:v4.5.1
         with:
           args: --theme-set slides/themes -o build/index.html --html -- slides/Slides.md
         env:
           MARP_USER: root:root
       - name: Marp Build (PDF)
-        uses: docker://marpteam/marp-cli:latest
+        uses: docker://marpteam/marp-cli:v4.5.1
         with:
           args: --theme-set slides/themes -o build/Slides.pdf --html --pdf --allow-local-files -- slides/Slides.md
         env:

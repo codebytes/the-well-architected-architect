@@ -1,0 +1,19 @@
+{
+  "title": "The checkout workload",
+  "description": "Conceptual flow: customers reach the checkout service through the edge. Required order state is persisted before acknowledgement. A separate queue supports deferred processing. This is not a deployable reference architecture.",
+  "background": "#f2f8ff",
+  "padding": 30,
+  "nodes": [
+    {"id":"customer","label":"Customers","x":20,"y":140,"width":150,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"edge","label":"Edge\nRoute","x":230,"y":140,"width":150,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"checkout","label":"Checkout\nAccept orders","x":440,"y":140,"width":210,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"data","label":"Order data\nPersist first","x":810,"y":40,"width":240,"height":100,"shape":"cylinder","fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"queue","label":"Queue\nProcess later","x":810,"y":260,"width":240,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26}
+  ],
+  "edges": [
+    {"source":"customer","target":"edge","orthogonal":true,"strokeWidth":2},
+    {"source":"edge","target":"checkout","orthogonal":true,"strokeWidth":2},
+    {"source":"checkout","target":"data","orthogonal":true,"strokeWidth":2},
+    {"source":"checkout","target":"queue","orthogonal":true,"dashed":true,"strokeWidth":2}
+  ]
+}

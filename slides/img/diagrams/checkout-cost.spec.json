@@ -1,0 +1,20 @@
+{
+  "title": "Attribute the full workload cost",
+  "description": "The same checkout flow shows cost-bearing edge requests, compute including tested recovery headroom, order-data retention, and deferred work. Attribute the full workload cost, not only the application host.",
+  "background": "#f2f8ff",
+  "padding": 30,
+  "nodes": [
+    {"id":"customer","label":"Completed\norders","x":20,"y":140,"width":150,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"edge","label":"Edge\nRequests","x":230,"y":140,"width":150,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":24},
+    {"id":"checkout","label":"Compute +\nrecovery headroom","x":440,"y":140,"width":210,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":24},
+    {"id":"data","label":"Order data\nRetention","x":810,"y":40,"width":240,"height":100,"shape":"cylinder","fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"queue","label":"Deferred work\nMeter usage","x":810,"y":260,"width":240,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"owner","label":"One cost model. One accountable owner.","x":160,"y":25,"width":540,"height":60,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":26}
+  ],
+  "edges": [
+    {"source":"customer","target":"edge","orthogonal":true,"strokeWidth":2},
+    {"source":"edge","target":"checkout","orthogonal":true,"strokeWidth":2},
+    {"source":"checkout","target":"data","orthogonal":true,"strokeWidth":2},
+    {"source":"checkout","target":"queue","orthogonal":true,"dashed":true,"strokeWidth":2}
+  ]
+}

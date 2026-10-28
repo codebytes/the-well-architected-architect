@@ -1,0 +1,622 @@
+/* @theme architect */
+@import 'custom-techorama';
+
+@font-face {
+  font-family: 'Blueprint Barlow';
+  src: url('themes/fonts/barlow-condensed-latin-600-normal.woff2') format('woff2');
+  font-weight: 600;
+  font-display: block;
+}
+
+/* Drafting palette and grid adapted from marp-demo's Style Lab blueprint. */
+:root,
+section {
+  --blueprint-paper: #0f4b93;
+  --blueprint-surface: #103f79;
+  --blueprint-ink: #f2f8ff;
+  --blueprint-muted: #d3e4f9;
+  --blueprint-line: #92b9e3;
+  --blueprint-grid:
+    linear-gradient(#ffffff05 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff05 1px, transparent 1px),
+    linear-gradient(#ffffff0a 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff0a 1px, transparent 1px),
+    radial-gradient(ellipse at 30% 20%, #1659a8, var(--blueprint-paper) 70%);
+  --techo-navy: var(--blueprint-ink);
+  --techo-blue: var(--blueprint-line);
+  --techo-orange: var(--blueprint-ink);
+  --techo-gold: var(--blueprint-ink);
+  --techo-gold-dark: var(--blueprint-muted);
+  --techo-white: var(--blueprint-ink);
+  --techo-text: var(--blueprint-ink);
+  --techo-mid-gray: var(--blueprint-muted);
+  --techo-border: var(--blueprint-line);
+  --techo-link: var(--blueprint-ink);
+  --techo-code-bg: #092c56;
+  color: var(--blueprint-ink);
+  border: 0;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+section,
+section.field,
+section.title,
+section.lead,
+section.section,
+section.quest,
+section.invert,
+section.parchment,
+section.outro {
+  background: var(--blueprint-grid);
+  background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px, auto;
+  color: var(--blueprint-ink);
+  border: 0;
+  box-shadow: none;
+}
+
+section {
+  align-content: safe center;
+  justify-content: safe center;
+}
+
+section.field {
+  justify-content: safe center;
+}
+
+section::before,
+section.quest::before {
+  content: '';
+  position: absolute;
+  display: block;
+  inset: 20px;
+  width: auto;
+  height: auto;
+  border: 1px solid #92b9e340;
+  outline: none;
+  background: none;
+  pointer-events: none;
+}
+
+section h1,
+section h2,
+section h3,
+section.title h1,
+section.title h2,
+section.lead h1,
+section.section h1,
+section.quest h1,
+section.field h1,
+section.field h2,
+section.field-cover h1,
+section.logo,
+section .logo {
+  font-family: 'Blueprint Barlow', 'Arial Narrow', 'Segoe UI', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--blueprint-ink);
+  text-shadow: none;
+}
+
+section h1,
+section.lead h1,
+section.section h1,
+section.quest h1 {
+  border: 0;
+}
+
+section h2 {
+  border-bottom: 0;
+}
+
+section strong,
+section li strong,
+section.lead strong,
+section.outro h1,
+section.parchment h1,
+section.parchment h2 {
+  color: var(--blueprint-ink);
+}
+
+section em,
+section.section p,
+section.quest p,
+section.quest li {
+  color: var(--blueprint-muted);
+}
+
+section a {
+  text-decoration: underline;
+  text-decoration-color: #92b9e380;
+  text-underline-offset: 0.12em;
+}
+
+section a:hover {
+  color: #ffffff;
+}
+
+section blockquote,
+section.lead blockquote,
+section.parchment blockquote,
+section.glance .columns > div {
+  color: var(--blueprint-ink);
+  background: none;
+  border: 0;
+  border-radius: 0;
+  font-style: normal;
+}
+
+section table {
+  font-size: 0.95em;
+}
+
+section th,
+section td {
+  border-bottom-color: #92b9e340;
+}
+
+section th {
+  background: var(--blueprint-surface);
+}
+
+section table tr,
+section table tr:nth-child(even) {
+  background: var(--blueprint-surface);
+}
+
+section tr:nth-child(even) td {
+  background: #ffffff0d;
+}
+
+section code {
+  background: #092c56;
+  color: var(--blueprint-ink);
+}
+
+section pre {
+  border: 1px solid #92b9e380;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+section::after {
+  right: 32px;
+  bottom: 28px;
+  padding: 0 12px;
+  border-left: 1px solid var(--blueprint-line);
+  color: var(--blueprint-muted);
+}
+
+section footer {
+  bottom: 28px;
+}
+
+section header {
+  top: 30px;
+  left: 64px;
+  right: 64px;
+  color: var(--blueprint-muted);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+}
+
+section.pillar-entry .pillar-path {
+  top: 64px;
+}
+
+section.part-entry .pillar-path {
+  top: 32px;
+}
+
+section .fa-brands,
+section .fa {
+  color: var(--blueprint-ink);
+}
+
+section.field,
+section.field-cover {
+  --field-muted: var(--blueprint-muted);
+  --field-good: #a9f0d3;
+  --field-good-bg: #103f55;
+  --field-warning: #ffd3a3;
+  --field-warning-bg: #593d35;
+}
+
+section.field .eyebrow,
+section.field-cover .eyebrow,
+section.field .source-note {
+  color: var(--blueprint-muted);
+}
+
+section.field .pillar-cards > div,
+section.field .flow-strip > div,
+section.field .flow-node,
+section.field .decision-record,
+section.field .decision-panels > div,
+section.field .capacity-equation,
+section.field .choice-grid > div {
+  background: var(--blueprint-surface);
+  border: 1px solid var(--blueprint-line);
+  border-radius: 0;
+}
+
+section.field .pillar-cards > div {
+  --pillar-accent: var(--blueprint-muted);
+}
+
+section.field .zone-card {
+  border-radius: 0;
+}
+
+section.field .takeaway {
+  border-top: 0;
+  margin: 0;
+}
+
+section.field .zone-card.unavailable {
+  background: #243d5b;
+  border-color: var(--blueprint-line);
+}
+
+section.field .zone-card.unavailable > strong,
+section.field .zone-card.unavailable > b {
+  color: var(--blueprint-muted);
+}
+
+section.field .capacity-bar {
+  background: #ffffff1a;
+  border-color: var(--blueprint-line);
+  border-radius: 0;
+}
+
+section.pillar-entry .pillar-path > * {
+  color: var(--blueprint-muted);
+  border-color: #92b9e380;
+}
+
+section.pillar-entry .pillar-path > b {
+  color: var(--blueprint-ink);
+  border-color: var(--blueprint-ink);
+}
+
+section.field-cover {
+  --techo-gold: #e5c35a;
+}
+
+section.field-cover .event-mark {
+  position: absolute;
+  top: 36px;
+  right: 64px;
+  width: 158px;
+  height: 94px;
+  object-fit: contain;
+}
+
+section.field-cover .cover-caption {
+  color: var(--blueprint-muted);
+}
+
+.fundamentals-map {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px;
+}
+
+.fundamentals-map h3 {
+  padding-top: 18px;
+  border-top: 1px solid var(--blueprint-line);
+}
+
+section.field .diagram-asset {
+  margin: 14px 0;
+}
+
+section.field .diagram-asset img {
+  display: block;
+  width: 100%;
+  height: 330px;
+  object-fit: contain;
+}
+
+section.field .diagram-caption {
+  margin: 12px 0 0;
+  font-size: 25px;
+  line-height: 1.3;
+}
+
+section.field .diagram-key {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin: 14px 0 0;
+  font-size: 25px;
+  line-height: 1.3;
+}
+
+section.field .diagram-key p {
+  margin: 0;
+}
+
+.evidence-path {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 28px;
+  counter-reset: evidence;
+  list-style: none;
+  padding: 0;
+}
+
+section .evidence-path li {
+  counter-increment: evidence;
+  margin: 0;
+  border-top: 1px solid var(--blueprint-line);
+  padding-top: 14px;
+  line-height: 1.3;
+}
+
+.evidence-path li::before {
+  content: counter(evidence, decimal-leading-zero);
+  display: block;
+  margin-bottom: 14px;
+  color: var(--blueprint-muted);
+  font-size: 20px;
+}
+
+.evidence-path strong {
+  display: block;
+  margin-bottom: 14px;
+  font-family: 'Blueprint Barlow', 'Arial Narrow', sans-serif;
+  font-size: 34px;
+  font-weight: 600;
+}
+
+.evidence-path span {
+  font-size: 25px;
+}
+
+.unit-cost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin: 28px 0;
+  font-size: 36px;
+}
+
+.unit-cost .fraction {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 14px;
+}
+
+.unit-cost .fraction > :first-child {
+  border-bottom: 2px solid var(--blueprint-line);
+  padding-bottom: 14px;
+}
+
+.release-board {
+  display: grid;
+  grid-template-columns: 220px 1fr 280px;
+  grid-template-rows: repeat(2, 130px);
+  align-items: stretch;
+  gap: 24px 64px;
+  margin: 20px 0;
+}
+
+.release-board > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid var(--blueprint-line);
+  background: var(--blueprint-surface);
+  padding: 18px 22px;
+}
+
+.release-board .release-router,
+.release-board .release-gate {
+  grid-row: 1 / 3;
+  align-self: center;
+  min-height: 160px;
+}
+
+.release-board .release-router {
+  grid-column: 1;
+}
+
+.release-board .release-gate {
+  grid-column: 3;
+}
+
+.release-board .release-current,
+.release-board .release-canary {
+  grid-column: 2;
+}
+
+.release-board .release-current {
+  grid-row: 1;
+}
+
+.release-board .release-canary {
+  grid-row: 2;
+}
+
+.release-current::before,
+.release-canary::before,
+.release-current::after,
+.release-canary::after {
+  content: '';
+  position: absolute;
+  width: 64px;
+  height: 77px;
+  border-color: var(--blueprint-line);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.release-current::before,
+.release-canary::before {
+  right: 100%;
+  border-width: 1px 0 0 1px;
+}
+
+.release-current::after,
+.release-canary::after {
+  left: 100%;
+  border-width: 1px 1px 0 0;
+}
+
+.release-current::before,
+.release-current::after {
+  top: 50%;
+}
+
+.release-canary::before,
+.release-canary::after {
+  bottom: 50%;
+  transform: scaleY(-1);
+}
+
+.release-board span {
+  color: var(--blueprint-muted);
+  font-size: 21px;
+}
+
+.release-board strong {
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 8px 0;
+}
+
+.release-board small {
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+.release-board[data-state="rollback"] .release-canary {
+  border-style: dashed;
+  background: var(--field-warning-bg);
+}
+
+.release-board[data-state="rollback"] .release-canary::before {
+  border-style: dashed;
+}
+
+section.release-story .release-router { view-transition-name: release-router; }
+section.release-story .release-current { view-transition-name: release-current; }
+section.release-story .release-canary { view-transition-name: release-canary; }
+section.release-story .release-gate { view-transition-name: release-gate; }
+section.performance-story .diagram-asset { view-transition-name: performance-path; }
+
+@media (prefers-reduced-motion: reduce), print {
+  section.release-story .release-board > div,
+  section.performance-story .diagram-asset {
+    view-transition-name: none;
+  }
+}
+
+section.field .native-visual {
+  margin: 18px 0 14px;
+}
+
+.native-visual svg {
+  display: block;
+  width: 100%;
+  height: 310px;
+  overflow: visible;
+}
+
+.native-visual text {
+  fill: var(--blueprint-ink);
+  font-family: 'Alegreya Sans', 'Segoe UI', sans-serif;
+  font-size: 27px;
+}
+
+.native-visual .visual-label {
+  font-family: 'Blueprint Barlow', 'Arial Narrow', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.native-visual .visual-detail {
+  fill: var(--blueprint-muted);
+  font-size: 23px;
+}
+
+.native-visual .visual-rail {
+  fill: none;
+  stroke: var(--blueprint-line);
+  stroke-width: 2;
+}
+
+.native-visual .visual-guide {
+  fill: none;
+  stroke: var(--blueprint-line);
+  stroke-width: 1;
+  stroke-dasharray: 4 6;
+}
+
+.native-visual .visual-ink {
+  fill: none;
+  stroke: var(--blueprint-ink);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.native-visual [data-motion-ink="draw"] {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.native-visual .visual-node {
+  fill: var(--blueprint-surface);
+  stroke: var(--blueprint-line);
+  stroke-width: 2;
+}
+
+.native-visual .visual-point {
+  fill: var(--blueprint-ink);
+}
+
+.native-visual .visual-warning {
+  fill: var(--field-warning);
+}
+
+.native-visual .visual-success {
+  fill: var(--field-good);
+}
+
+.native-visual .visual-bar {
+  fill: var(--blueprint-line);
+}
+
+.native-visual .visual-tail {
+  fill: #ffd3a31a;
+  stroke: var(--field-warning);
+  stroke-width: 2;
+}
+
+.native-visual .motion-error {
+  position: absolute;
+  right: 80px;
+  bottom: 28px;
+  max-width: 660px;
+  color: var(--field-warning);
+  font-size: 17px;
+}
+
+.native-visual .motion-error[hidden] {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce), print {
+  .native-visual .motion-error {
+    display: none !important;
+  }
+
+  .native-visual [data-motion-ink] {
+    stroke-dashoffset: 0 !important;
+    opacity: 1 !important;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Zones are failure boundaries inside a region",
+  "description": "A region contains separate availability zones. Losing Zone C is not the same failure as losing Region A. A separate region may support a recovery design, but routing, data recovery, dependencies, and capacity still require validation.",
+  "background": "#f2f8ff",
+  "padding": 30,
+  "nodes": [
+    {"id":"region-a","label":"","x":20,"y":20,"width":670,"height":290,"fill":"none","stroke":"#0f4b93","strokeWidth":2},
+    {"id":"region-b","label":"","x":780,"y":20,"width":280,"height":290,"fill":"none","stroke":"#0f4b93","strokeWidth":2,"dashed":true},
+    {"id":"label-a","label":"Region A","x":40,"y":40,"width":240,"height":60,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":30},
+    {"id":"label-b","label":"Separate region","x":790,"y":40,"width":260,"height":60,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":28},
+    {"id":"zone-a","label":"Zone A","x":50,"y":150,"width":180,"height":100,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":28},
+    {"id":"zone-b","label":"Zone B","x":260,"y":150,"width":180,"height":100,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":28},
+    {"id":"zone-c","label":"Zone C\nUnavailable","x":470,"y":150,"width":180,"height":100,"fill":"#fff1e9","stroke":"#8a4424","fontColor":"#103f79","fontSize":26,"dashed":true},
+    {"id":"recovery","label":"Regional recovery\nmust be proved","x":800,"y":150,"width":240,"height":100,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":26}
+  ],
+  "edges": []
+}

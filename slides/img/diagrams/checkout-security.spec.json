@@ -1,0 +1,23 @@
+{
+  "title": "Protect the checkout flow",
+  "description": "The same conceptual checkout with a trust boundary, caller verification, managed identity, restricted data access, and a detection/response path. Controls must match actual data and flows; the diagram is not a complete security design.",
+  "background": "#f2f8ff",
+  "padding": 30,
+  "nodes": [
+    {"id":"boundary","label":"","x":410,"y":10,"width":660,"height":350,"fill":"none","stroke":"#0f4b93","dashed":true},
+    {"id":"boundary-label","label":"Workload boundary","x":430,"y":20,"width":280,"height":40,"fill":"#f2f8ff","stroke":"none","fontColor":"#103f79","fontSize":24},
+    {"id":"customer","label":"Customers","x":20,"y":140,"width":150,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"edge","label":"Edge\nVerify callers","x":230,"y":140,"width":150,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":24},
+    {"id":"checkout","label":"Checkout\nManaged identity","x":440,"y":140,"width":210,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":24},
+    {"id":"data","label":"Order data\nRestricted access","x":810,"y":40,"width":240,"height":100,"shape":"cylinder","fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":24},
+    {"id":"queue","label":"Queue\nScoped permissions","x":810,"y":260,"width":240,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":24},
+    {"id":"response","label":"Signals\nRehearsed response","x":440,"y":275,"width":260,"height":70,"fill":"#f2f8ff","stroke":"#0f4b93","fontColor":"#103f79","fontSize":24}
+  ],
+  "edges": [
+    {"source":"customer","target":"edge","orthogonal":true,"strokeWidth":2},
+    {"source":"edge","target":"checkout","orthogonal":true,"strokeWidth":2},
+    {"source":"checkout","target":"data","orthogonal":true,"strokeWidth":2},
+    {"source":"checkout","target":"queue","orthogonal":true,"dashed":true,"strokeWidth":2},
+    {"source":"checkout","target":"response","orthogonal":true,"strokeWidth":2}
+  ]
+}
