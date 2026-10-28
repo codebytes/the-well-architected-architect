@@ -1,0 +1,17 @@
+{
+  "title": "RPO looks backward; RTO looks forward",
+  "description": "An illustrative recovery timeline. Recovery point objective bounds the acceptable data-loss window before an outage; recovery time objective bounds the time to restore service after the outage. Five and thirty minutes are independent examples, not WAF defaults.",
+  "background": "#f2f8ff",
+  "padding": 30,
+  "nodes": [
+    {"id":"point","label":"Recoverable\npoint","x":20,"y":70,"width":220,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":28},
+    {"id":"outage","label":"Outage","x":440,"y":70,"width":180,"height":90,"fill":"#fff1e9","stroke":"#8a4424","fontColor":"#103f79","fontSize":30},
+    {"id":"restored","label":"Flow\nrestored","x":820,"y":70,"width":220,"height":90,"fill":"#edf6f1","stroke":"#21604c","fontColor":"#103f79","fontSize":28},
+    {"id":"rpo","label":"RPO / data-loss window\nExample: at most 5 minutes","x":40,"y":210,"width":450,"height":90,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":28},
+    {"id":"rto","label":"RTO / time to restore\nExample: at most 30 minutes","x":590,"y":210,"width":450,"height":90,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":28}
+  ],
+  "edges": [
+    {"source":"point","target":"outage","strokeWidth":3},
+    {"source":"outage","target":"restored","strokeWidth":3}
+  ]
+}

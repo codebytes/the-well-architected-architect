@@ -1,0 +1,21 @@
+{
+  "title": "Release the checkout workload safely",
+  "description": "The shared checkout map adds current and canary application versions and a health gate. Observe the checkout SLO, expand only while healthy, and rehearse rollback. Data compatibility and deferred work remain part of the release plan.",
+  "background": "#f2f8ff",
+  "padding": 30,
+  "nodes": [
+    {"id":"customer","label":"Customers","x":20,"y":140,"width":150,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"edge","label":"Edge\nLimit traffic","x":230,"y":140,"width":150,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":24},
+    {"id":"checkout","label":"Current / canary\nTested builds","x":440,"y":140,"width":210,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":24},
+    {"id":"data","label":"Order data\nCompatible changes","x":810,"y":40,"width":240,"height":100,"shape":"cylinder","fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":24},
+    {"id":"queue","label":"Deferred work\nSafe to replay","x":810,"y":260,"width":240,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"gate","label":"Observe checkout SLO\nExpand or roll back","x":440,"y":275,"width":260,"height":70,"fill":"#f2f8ff","stroke":"#0f4b93","fontColor":"#103f79","fontSize":24}
+  ],
+  "edges": [
+    {"source":"customer","target":"edge","orthogonal":true,"strokeWidth":2},
+    {"source":"edge","target":"checkout","orthogonal":true,"strokeWidth":2},
+    {"source":"checkout","target":"data","orthogonal":true,"strokeWidth":2},
+    {"source":"checkout","target":"queue","orthogonal":true,"dashed":true,"strokeWidth":2},
+    {"source":"checkout","target":"gate","orthogonal":true,"strokeWidth":2}
+  ]
+}

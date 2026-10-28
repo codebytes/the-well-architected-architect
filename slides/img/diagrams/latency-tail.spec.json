@@ -1,0 +1,26 @@
+{
+  "title": "The slowest requests disappear inside an average",
+  "description": "Synthetic teaching example, not measurements or targets: 100 requests, with exact latencies of 100 ms for 60 requests, 200 ms for 25, 300 ms for 10, 600 ms for 4, and 1200 ms for 1. Nearest-rank P95 is 300 ms and P99 is 600 ms.",
+  "background": "#f2f8ff",
+  "padding": 30,
+  "data": {"kind":"synthetic teaching example","percentileMethod":"nearest rank","samples":[{"milliseconds":100,"count":60},{"milliseconds":200,"count":25},{"milliseconds":300,"count":10},{"milliseconds":600,"count":4},{"milliseconds":1200,"count":1}]},
+  "nodes": [
+    {"id":"axis","label":"","x":30,"y":240,"width":990,"height":2,"fill":"#103f79","stroke":"none"},
+    {"id":"bar-100","label":"","x":70,"y":60,"width":120,"height":180,"fill":"#0f4b93","stroke":"none"},
+    {"id":"bar-200","label":"","x":270,"y":165,"width":120,"height":75,"fill":"#0f4b93","stroke":"none"},
+    {"id":"bar-300","label":"","x":470,"y":210,"width":120,"height":30,"fill":"#0f4b93","stroke":"none"},
+    {"id":"bar-600","label":"","x":670,"y":228,"width":120,"height":12,"fill":"#0f4b93","stroke":"none"},
+    {"id":"bar-1200","label":"","x":870,"y":237,"width":120,"height":3,"fill":"#8a4424","stroke":"none"},
+    {"id":"count-100","label":"60 requests","x":30,"y":15,"width":200,"height":40,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":26},
+    {"id":"count-200","label":"25","x":270,"y":120,"width":120,"height":40,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":26},
+    {"id":"count-300","label":"10","x":470,"y":165,"width":120,"height":40,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":26},
+    {"id":"count-600","label":"4","x":670,"y":183,"width":120,"height":40,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":26},
+    {"id":"count-1200","label":"1","x":870,"y":192,"width":120,"height":40,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":26},
+    {"id":"label-100","label":"100 ms","x":40,"y":260,"width":180,"height":65,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":26},
+    {"id":"label-200","label":"200 ms","x":240,"y":260,"width":180,"height":65,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":26},
+    {"id":"label-300","label":"300 ms\nP95","x":440,"y":260,"width":180,"height":65,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":26},
+    {"id":"label-600","label":"600 ms\nP99","x":640,"y":260,"width":180,"height":65,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":26},
+    {"id":"label-1200","label":"1200 ms\nSlowest 1%","x":840,"y":260,"width":180,"height":65,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":26}
+  ],
+  "edges": []
+}

@@ -1,0 +1,20 @@
+{
+  "title": "Retry the operation without repeating its effect",
+  "description": "A message is processed with a stable operation key. Repeated attempts persist once or reuse the result. Temporary failures get bounded retries; unprocessable messages go to a dead-letter queue for investigation. The sketch is conceptual, not an exactly-once guarantee.",
+  "background": "#f2f8ff",
+  "padding": 30,
+  "nodes": [
+    {"id":"message","label":"Order message","x":20,"y":30,"width":240,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":28},
+    {"id":"key","label":"Same operation key\non every attempt","x":410,"y":30,"width":280,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"effect","label":"Persist once\nor reuse the result","x":850,"y":30,"width":260,"height":90,"fill":"#edf6f1","stroke":"#21604c","fontColor":"#103f79","fontSize":26},
+    {"id":"retry","label":"Temporary failure\nRetry with limits + delay","x":740,"y":250,"width":370,"height":90,"fill":"#fff1e9","stroke":"#8a4424","fontColor":"#103f79","fontSize":26},
+    {"id":"dead-letter","label":"Cannot process\nDead-letter queue: investigate","x":20,"y":250,"width":390,"height":90,"fill":"#fff1e9","stroke":"#8a4424","fontColor":"#103f79","fontSize":24}
+  ],
+  "edges": [
+    {"source":"message","target":"key","orthogonal":true,"strokeWidth":2},
+    {"source":"key","target":"effect","orthogonal":true,"strokeWidth":2},
+    {"source":"effect","target":"retry","orthogonal":true,"strokeWidth":2},
+    {"source":"retry","target":"key","dashed":true,"strokeWidth":2},
+    {"source":"message","target":"dead-letter","orthogonal":true,"dashed":true,"strokeWidth":2}
+  ]
+}

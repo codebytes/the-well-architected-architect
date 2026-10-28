@@ -1,0 +1,8 @@
+/* Native view transitions belong to the document, outside Marp's slide-scoped CSS. */
+@media (prefers-reduced-motion: reduce) {
+  :root::view-transition-group(*),
+  :root::view-transition-old(*),
+  :root::view-transition-new(*) {
+    animation: none !important;
+  }
+}

@@ -6,7 +6,8 @@
         "./slides/themes/custom-default.css",
         "./slides/themes/custom-gaia.css",
         "./slides/themes/custom-uncover.css",
-        "./slides/themes/custom-techorama.css"
+        "./slides/themes/custom-techorama.css",
+        "./slides/themes/architect.css"
     ],
     "cSpell.words": [
         "techorama",

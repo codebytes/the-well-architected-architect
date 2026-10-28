@@ -1,0 +1,21 @@
+{
+  "title": "Make the workload observable and learn from recovery",
+  "description": "A checkout request emits correlated telemetry. An operator uses a tested runbook, updates the decision record from evidence, and rehearses the resulting change. Correlation IDs link events for one request.",
+  "background": "#f2f8ff",
+  "padding": 30,
+  "nodes": [
+    {"id":"request","label":"Checkout\nOne request","x":20,"y":20,"width":230,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":28},
+    {"id":"telemetry","label":"Telemetry\nLogs / metrics / traces","x":395,"y":20,"width":300,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":25},
+    {"id":"runbook","label":"Runbook\nTested steps","x":840,"y":20,"width":220,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":28},
+    {"id":"adr","label":"Update ADR\nShare the evidence","x":820,"y":240,"width":240,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"rehearse","label":"Rehearse\nTest the next change","x":20,"y":240,"width":270,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"correlation","label":"Correlation ID: links events for one request.","x":300,"y":145,"width":500,"height":55,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":24}
+  ],
+  "edges": [
+    {"source":"request","target":"telemetry","orthogonal":true,"strokeWidth":2},
+    {"source":"telemetry","target":"runbook","orthogonal":true,"strokeWidth":2},
+    {"source":"runbook","target":"adr","orthogonal":true,"strokeWidth":2},
+    {"source":"adr","target":"rehearse","orthogonal":true,"strokeWidth":2},
+    {"source":"rehearse","target":"request","orthogonal":true,"strokeWidth":2}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "title": "Measure delivery speed and recovery",
+  "description": "Timeline defining change lead time from commit to production, and recovery time from a failed change to restored service. Deployment frequency counts releases in a window; change failure rate is the share needing intervention. No measured values or universal targets are implied.",
+  "background": "#f2f8ff",
+  "padding": 30,
+  "nodes": [
+    {"id":"commit","label":"Commit","x":20,"y":50,"width":200,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":28},
+    {"id":"production","label":"Production","x":320,"y":50,"width":200,"height":90,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":28},
+    {"id":"failure","label":"Change fails","x":620,"y":50,"width":200,"height":90,"fill":"#fff1e9","stroke":"#8a4424","fontColor":"#103f79","fontSize":26},
+    {"id":"restored","label":"Service restored","x":920,"y":50,"width":220,"height":90,"fill":"#edf6f1","stroke":"#21604c","fontColor":"#103f79","fontSize":26},
+    {"id":"lead-time","label":"Change lead time\nCommit to production","x":20,"y":210,"width":500,"height":80,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":30},
+    {"id":"recovery","label":"Recovery time\nFailure to restored service","x":620,"y":210,"width":520,"height":80,"fill":"none","stroke":"none","fontColor":"#103f79","fontSize":30}
+  ],
+  "edges": [
+    {"source":"commit","target":"production","orthogonal":true,"strokeWidth":2},
+    {"source":"production","target":"failure","orthogonal":true,"dashed":true,"strokeWidth":2},
+    {"source":"failure","target":"restored","orthogonal":true,"strokeWidth":2}
+  ]
+}

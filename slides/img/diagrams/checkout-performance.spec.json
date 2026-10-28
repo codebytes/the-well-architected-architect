@@ -1,0 +1,19 @@
+{
+  "title": "Defer work without losing required state",
+  "description": "Alternative checkout: persist the required order state and durable intent for deferred work before acknowledging. A queue decouples receipt email from the synchronous request. Cache only safe reads; measure the bottleneck and test the same peak.",
+  "background": "#f2f8ff",
+  "padding": 30,
+  "nodes": [
+    {"id":"customer","label":"Customers\nAccepted","x":20,"y":140,"width":150,"height":80,"fill":"#edf6f1","stroke":"#21604c","fontColor":"#103f79","fontSize":26},
+    {"id":"edge","label":"Edge\nRoute","x":230,"y":140,"width":150,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26},
+    {"id":"checkout","label":"Checkout\nAcknowledge","x":440,"y":140,"width":210,"height":80,"fill":"#edf6f1","stroke":"#21604c","fontColor":"#103f79","fontSize":26},
+    {"id":"data","label":"Order + email task\nPersist together","x":810,"y":40,"width":240,"height":100,"shape":"cylinder","fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":24},
+    {"id":"queue","label":"Queue\nEmail later","x":810,"y":260,"width":240,"height":80,"fill":"#d3e4f9","stroke":"#0f4b93","fontColor":"#103f79","fontSize":26}
+  ],
+  "edges": [
+    {"source":"customer","target":"edge","orthogonal":true,"strokeWidth":2},
+    {"source":"edge","target":"checkout","orthogonal":true,"strokeWidth":2},
+    {"source":"checkout","target":"data","orthogonal":true,"strokeWidth":2},
+    {"source":"data","target":"queue","orthogonal":true,"dashed":true,"strokeWidth":2}
+  ]
+}
