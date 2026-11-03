@@ -8,6 +8,11 @@ Explore solution architecture principles and the Azure Well-Architected Framewor
 
 The HTML combines presenter-stepped transitions with native SVG tracing and percentile highlights inspired by [marp-demo](https://github.com/codebytes/marp-demo). Animations start automatically on slide entry and run once; revisit a slide to replay, or advance immediately without waiting. Presenter previews, reduced-motion views, and PDF remain complete static slides. Key terms are defined before use, with supporting detail in speaker notes. A Techorama-branded opener precedes the original blueprint title slide. The rest uses the `architect` theme's restrained blueprint style with consistently vertically centered content. Native graphics live in the slide source; editable draw.io alternatives and architecture maps live in [`slides/img/diagrams`](slides/img/diagrams). Pages exports use Marp CLI 4.5.1.
 
+## Recordings
+
+- [Azure Dev Summit 2025](https://www.youtube.com/watch?v=xoRZ3CsHnc8)
+- [Azure Spring Clean 2025](https://www.youtube.com/watch?v=sAqaVU73XcE)
+
 ## Resources
 
 - [Slide source](slides/Slides.md)
